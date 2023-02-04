@@ -1,0 +1,73 @@
+{	"lastBuildDate":"Thu, 02 Feb 2023 10:27:33 +0900",
+	"total":1,	
+	"start":1,	
+	"display":1,	
+	"items":[		
+		{			
+			"title":"<b>더 퍼스트 슬램덩크<\/b>",
+			"link":"https:\/\/movie.naver.com\/movie\/bi\/mi\/basic.nhn?code=223800",
+			"image":"https:\/\/ssl.pstatic.net\/imgmovie\/mdi\/mit110\/2238\/223800_P09_101811.jpg",
+			"subtitle":"The First Slam Dunk",
+			"pubDate":"2022",
+			"director":"이노우에 다케히코|",
+			"actor":"",
+			"userRating":"9.50"		
+		}	
+	]
+}
+
+///////////////////////////////////////////////////////////
+{
+"comMsgHeader":
+			{
+				"responseMsgID":null,
+				"responseTime":null,
+				"requestMsgID":null,
+				"returnCode":null,
+				"successYN":null,
+				"errMsg":null
+			},
+"msgHeader":
+			{
+				"headerMsg":"정상적으로 처리되었습니다.",
+				"headerCd":"0",
+				"itemCount":0
+				},
+"msgBody":
+			{
+				"itemList":
+						[
+							{
+								"busRouteId":"104000009",
+								"busRouteNm":"111",
+								"busRouteAbrv":"111",
+								"length":"57.1",
+								"routeType":"3",
+								"stStationNm":"민락동차고지",
+								"edStationNm":"동대문",
+								"term":"22",
+								"lastBusYn":" ",
+								"lastBusTm":"20230203222000",
+								"firstBusTm":"20230203041000",
+								"lastLowTm":"20211125000000",
+								"firstLowTm":"              ",
+								"corpNm":"대원여객  02-3436-6366"
+							}
+						]
+			}
+}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
