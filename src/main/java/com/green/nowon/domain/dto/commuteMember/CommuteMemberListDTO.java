@@ -24,7 +24,7 @@ public class CommuteMemberListDTO {
 	
 	private String name;
 	
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("D일 a h시간 mm분");
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d일 a h시간 mm분");
 	
 	public CommuteMemberListDTO(CommuteEntity e) {
 		if(e==null) {
