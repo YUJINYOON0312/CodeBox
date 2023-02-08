@@ -40,7 +40,7 @@ class CodeBoxApplicationTests {
 	//id : admin 
 	//pass: 1234
 	//문제 발생시 직접 DB에서 수정하셔도 됩니다.
-	@Test//어드민 생성
+	//@Test//어드민 생성
 	void contextLoads() {
 		//멤버 생성
 		repo.save(MemberEntity.builder()
