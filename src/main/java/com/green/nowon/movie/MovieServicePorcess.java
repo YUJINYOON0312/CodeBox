@@ -26,7 +26,6 @@ public class MovieServicePorcess implements MovieService {
 
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
 		return super.clone();
 	}
 

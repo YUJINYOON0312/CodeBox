@@ -24,6 +24,3 @@ logging:
 
     # ParamValueAOP
     "[com.green.nowon.util.aop.test.ParamValueAOP]": debug
-
-    # TimeMeasureAOP
-    "[com.green.nowon.util.aop.test.TimeMeasureAOP]": debug
