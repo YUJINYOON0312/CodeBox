@@ -30,30 +30,26 @@ public class CodeBoxApplication {
 			AddressEntityRepository addressrepo, DepartmentMemberEntityRepository dmRepo,
 			DepartmentEntityRepository departmentRepo) {
 		return args -> {
-			if (repo.findById("admin2").isPresent())
-				return;
-			else {
-				var a = repo.save(MemberEntity.builder()
-						.name("관리자")
-						.id("admin2")
-						.email("admin2@greengames.shop")
-						.pass(pe.encode("1234"))
-						.phone("010-1234-5608")
-						.hireDate(LocalDate.now())
-						.build()
-						.addRole(MyRole.ADMIN));
-				addressrepo.save(AddressEntity.builder()
-						.postcode("01849")
-						.roadAddress("서울 노원구 공릉로 95")
-						.jibunAddress("서울 노원구 공릉동 661-11")
-						.detailAddress("노원그린아카데미")
-						.extraAddress("(공릉동)")
-						.member(a)
-						.build());
-				var d = departmentRepo.save(DepartmentEntity.builder().dname("코드박스").depth(1).parent(null).build());
-				dmRepo.save(DepartmentMemberEntity.builder().department(d).member(a).build());
-			}
-			;
+			if (repo.findById("admin2").isPresent()) return;
+			var a = repo.save(MemberEntity.builder()
+					.name("관리자")
+					.id("admin2")
+					.email("admin2@greengames.shop")
+					.pass(pe.encode("1234"))
+					.phone("010-1234-5608")
+					.hireDate(LocalDate.now())
+					.build()
+					.addRole(MyRole.ADMIN));
+			addressrepo.save(AddressEntity.builder()
+					.postcode("01849")
+					.roadAddress("서울 노원구 공릉로 95")
+					.jibunAddress("서울 노원구 공릉동 661-11")
+					.detailAddress("노원그린아카데미")
+					.extraAddress("(공릉동)")
+					.member(a)
+					.build());
+			var d = departmentRepo.save(DepartmentEntity.builder().dname("코드박스").depth(1).parent(null).build());
+			dmRepo.save(DepartmentMemberEntity.builder().department(d).member(a).build());
 		};
 	}
 
