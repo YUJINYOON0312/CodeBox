@@ -10,20 +10,23 @@ import lombok.Data;
 
 @Data
 public class CommuteInsertDTO {
-	
-//	private String cType;
+
+	// private String cType;
 	private LocalDateTime gTime;
+
 	private LocalDateTime oTime;
+
 	private LocalDate today;
+
 	private MemberEntity member;
-	
+
 	public CommuteEntity entity() {
 		return CommuteEntity.builder()
-//				.cType(cType)
+				// .cType(cType)
 				.gTime(gTime)
 				.oTime(oTime)
 				.today(today)
 				.build();
 	}
-	
+
 }

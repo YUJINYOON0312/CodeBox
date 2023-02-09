@@ -1,6 +1,6 @@
 package com.green.nowon.service.impl;
 
-import java.util.List;import java.util.stream.Collector;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -18,17 +18,17 @@ import com.green.nowon.domain.entity.member.MemberEntity;
 import com.green.nowon.service.ReplyService;
 
 @Service
-public class ReplyServiceProc implements ReplyService{
+public class ReplyServiceProc implements ReplyService {
 
 	@Autowired
 	private ReplyEntityRepository repo;
-	
-	//등록
+
+	// 등록
 	@Transactional
 	@Override
 	public void save(ReplySaveDTO dto) {
-		
-		ReplyEntity entity=ReplyEntity.builder()
+
+		ReplyEntity entity = ReplyEntity.builder()
 				.content(dto.getContent())
 				.member(MemberEntity.builder().mno(dto.getMno()).build())
 				.board(BoardEntity.builder().bno(dto.getBno()).build())
@@ -36,22 +36,21 @@ public class ReplyServiceProc implements ReplyService{
 		repo.save(entity);
 	}
 
-	//리스트 불러오기
+	// 리스트 불러오기
 	@Transactional
 	@Override
 	public void findAll(Model model) {
-		
-		List<ReplyListDTO> result= repo.findAll()
-				.stream().map(ReplyListDTO::new).collect(Collectors.toList());
-		
-		model.addAttribute("list",result);
-		
+
+		List<ReplyListDTO> result = repo.findAll().stream().map(ReplyListDTO::new).collect(Collectors.toList());
+
+		model.addAttribute("list", result);
+
 	}
 
 	@Transactional
 	@Override
 	public void delete(long rno) {
-		repo.deleteById(rno);		
+		repo.deleteById(rno);
 	}
 
 }

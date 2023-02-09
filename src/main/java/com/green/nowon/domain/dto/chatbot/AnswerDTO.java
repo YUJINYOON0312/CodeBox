@@ -12,15 +12,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class AnswerDTO {
-	
+
 	private long no;
+
 	private String content;
-	private String keyword;//name
-	
+
+	private String keyword;// name
+
 	private PhoneInfo phone;
-	
-	public AnswerDTO phone(PhoneInfo phone){
-		this.phone=phone;
+
+	public AnswerDTO phone(PhoneInfo phone) {
+		this.phone = phone;
 		return this;
 	}
 

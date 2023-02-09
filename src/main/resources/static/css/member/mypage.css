@@ -1,180 +1,195 @@
-@charset "UTF-8";
-.mypage-title{
-	position: relative;
-	
+.mypage-title {
+  position: relative;
 }
 
-.mypage{
-	width: 1050px;
-	height: auto;
-	margin: 5% 5% 0 5%;
+.mypage {
+  width: 1050px;
+  height: auto;
+  margin: 5% 5% 0 5%;
 }
 
-.mypage-title{
-	position: relative;
-	left: 190px;
-	margin-bottom: 5px;
+.mypage-title {
+  position: relative;
+  left: 190px;
+  margin-bottom: 5px;
 }
-.mypage-addr>li{
-	list-style: none;
+.mypage-addr > li {
+  list-style: none;
 }
-.mypage-info{
-	border: 3px solid #03bb85;
-	width: auto;
-	max-width: 600px;
-	height: 420px;
-	border-radius: 30px;
-	position: relative;
-	top: 0px;
+.mypage-info {
+  border: 3px solid #f6d256;
+  width: auto;
+  max-width: 600px;
+  height: 420px;
+  border-radius: 15px;
+  position: relative;
+  top: 0px;
+  color: #ffeba8;
 }
-.member-info>p{
-	font-size: 15px;
-	margin-top: 15px;
+.member-info > p {
+  font-size: 15px;
+  margin-top: 15px;
 }
-.mypage-img{
-	width: 100%;
+.mypage-img {
+  width: 100%;
 }
-.mypage-img >img{
-	width: 120px;
-	height :150px;
-	margin: 25px;
-	border-radius: 60%;
-	margin-top: 10%;
-	margin-bottom: 200px;
+.mypage-img > img {
+  width: 120px;
+  height: 150px;
+  margin: 25px;
+  border-radius: 60%;
+  margin-top: 10%;
+  margin-bottom: 200px;
 }
-.main-btn{
-	width: 1050px;
-	height: auto;
-	margin: 10%;
+.main-btn {
+  width: 1050px;
+  height: auto;
+  margin: 10%;
 }
-.member-info{
-	margin-top: 45px;
+.member-info {
+  margin-top: 45px;
 }
-.approval-1{
-	position: relative;
-    left: 700px;
-    width: auto;
-    max-width: 249px;
-    top: -250px;
-}
-
-
-.approval-3{
-	border: 3px solid #03bb85;
-	border-radius: 10px;
-}
-.approval-3{
-	border-bottom: 3px solid #03bb85;
-	font-size: 18px;
-	font-weight: 600;
-	text-align: center;
-}
-.approval-3 >.text-link{
-	text-align: center;
-	height: auto;
+.approval-1 {
+  position: relative;
+  left: 700px;
+  width: auto;
+  max-width: 249px;
+  top: -250px;
 }
 
-.salary-info{
-	border: 3px solid #03bb85;
-	border-radius: 30px;
-	width: 950px;
-	margin: 0 5% 5% 5%;
-	text-align: center;
-	position: relative;
-	top: 0px;
+.approval-3 {
+  border: 3px solid #03bb85;
+  border-radius: 10px;
 }
-.salary-info-1{
-	text-align: center;	
+.approval-3 {
+  border-bottom: 3px solid #f6d256;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
 }
-.salary-info p{
-	border-bottom: 1px solid #03bb85;
-	margin-top: 5px;
-	padding-bottom: 5px;
-}
-.salary-info thead td{
-	width: 130px;
-	font-size: 15px;
-	font-weight: bold;
+.approval-3 > .text-link {
+  text-align: center;
+  height: auto;
 }
 
-.appro{
-	font-size: 15px;
-	font-weight: bold;
-	color: #03bb85;
+.salary-info {
+  border: 3px solid #f6d256;
+  border-radius: 30px;
+  width: 950px;
+  margin: 0 5%;
+  text-align: center;
+  position: relative;
+  top: 0px;
+  color: #ffeba8;
+}
+.salary-info-1 {
+  text-align: center;
+}
+.salary-info p {
+  border-bottom: 1px solid #f6d256;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  color: #f6d256;
+}
+.salary-info thead td {
+  width: 130px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
-.member-info li{
-	margin-bottom: 5px;
-}
-.member-info label{
-	display: inline-block;
-	width: 120px;
-	height: 25px;
-	font-size: 16px;
-	font-weight: 600;
-	color: #a4a4a4;
-}
-.member-info span{
-	display: inline-block;
-	height: 25px;
-}
-.m-tit{
-	text-align: center;
-	font-size: 18px;
-	font-weight: 600;
+.appro {
+  font-size: 15px;
+  font-weight: bold;
+  color: #f6d256;
 }
 
-.btn{
-	background-color: #03bb85;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-    display: inline-block;
-    width: 110px;
-    height: 30px;
-    border-radius: 5px;
-    margin-left: 20px;
-	margin-top: 20px;
-	margin-bottom: 10px;
-	border: 0;
-	outline: 0;	
+.member-info li {
+  margin-bottom: 5px;
 }
-.fir-board{
-	margin-top: 15px;
-	margin-bottom: 40px;
-	width: 950px;
+.member-info label {
+  display: inline-block;
+  width: 120px;
+  height: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f6d256;
 }
-.sec-board{
-	margin-top: 15px;
-	width: 950px;
+.member-info span {
+  display: inline-block;
+  height: 25px;
+}
+.m-tit {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #03bb85;
+  padding: 10px 0;
 }
 
-.board-list{
-	margin: 50px 70px;
+.btn {
+  background-color: #5587a2;
+  color: #f6d256;
+  border-radius: 15px;
+  border-color: #f6d256;
+  border-width: 2px;
+  border-style: outset;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  width: 110px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  /* yujin <->joanna */
+
+  outline: 0;
 }
-td{
-	padding: 5px;
-	height: 40px;
-	text-align: center;
+.fir-board {
+  /* yujin <->joanna */
+  border: 3px solid #03bb85;
+  border-radius: 10px;
+
+  margin-top: 15px;
+  margin-bottom: 40px;
+  width: 950px;
+}
+.sec-board {
+  /* yujin <->joanna */
+  border: 3px solid #03bb85;
+  border-radius: 10px;
+
+  margin-top: 15px;
+  width: 950px;
 }
 
-.board-title td:nth-child(1){
-	width: 120px;
+.board-list {
+  margin: 50px 70px;
 }
-.board-title td:nth-child(2){
-	width: 400px;
-}
-.board-title td:nth-child(3){
-	width: 150px;
-}
-.board-title td:nth-child(4){
-	width: 150px;
-}
-.board-title td:nth-child(5){
-	width: 150px;
+td {
+  padding: 5px;
+  height: 40px;
+  text-align: center;
 }
 
-.board tr:nth-child(even){
-	background: rgb(134, 209, 15, 20%);
+.board-title td:nth-child(1) {
+  width: 120px;
+}
+.board-title td:nth-child(2) {
+  width: 400px;
+}
+.board-title td:nth-child(3) {
+  width: 150px;
+}
+.board-title td:nth-child(4) {
+  width: 150px;
+}
+.board-title td:nth-child(5) {
+  width: 150px;
+}
+
+.board tr:nth-child(even) {
+  background: rgb(134, 209, 15, 20%);
 }

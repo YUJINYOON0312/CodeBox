@@ -28,33 +28,35 @@ import lombok.ToString;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@SequenceGenerator(name = "gg_gen_seq_nb_img",
-sequenceName = "gg_seq_nb_img", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name = "gg_gen_seq_nb_img", sequenceName = "gg_seq_nb_img", initialValue = 1, allocationSize = 1)
 @Table(name = "gg_nboard_picture")
 @Entity
-public class BoardImgEntity extends BaseDateEntity{
+public class BoardImgEntity extends BaseDateEntity {
 
 	@Id
 	@GeneratedValue(generator = "gg_gen_seq_nb_img", strategy = GenerationType.SEQUENCE)
 	private long fno;
+
 	@Column(nullable = false)
 	private String url;
+
 	@Column(nullable = false)
 	private String orgName;
+
 	@Column(nullable = false)
 	private String newName;
-	
+
 	private boolean def;
 
-	//대표이미지를 세팅해주는 편의메서드
+	// 대표이미지를 세팅해주는 편의메서드
 	public BoardImgEntity def(boolean def) {
-		this.def=def;
+		this.def = def;
 		return this;
 	}
-	
-	@OnDelete(action= OnDeleteAction.CASCADE)//삭제 cascade를 하여 삭제 실패
-	@JoinColumn//bno
+
+	@OnDelete(action = OnDeleteAction.CASCADE) // 삭제 cascade를 하여 삭제 실패
+	@JoinColumn // bno
 	@ManyToOne
 	private BoardEntity board;
-	
+
 }

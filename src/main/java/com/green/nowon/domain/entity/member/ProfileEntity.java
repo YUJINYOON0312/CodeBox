@@ -26,24 +26,27 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@SequenceGenerator(name = "gen_seq_gg_profile",
-sequenceName = "seq_gg_profile", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name = "gen_seq_gg_profile", sequenceName = "seq_gg_profile", initialValue = 1, allocationSize = 1)
 @Table(name = "gg_profile")
 @Entity
-public class ProfileEntity extends BaseDateEntity{
-	
+public class ProfileEntity extends BaseDateEntity {
+
 	@Id
 	@GeneratedValue(generator = "gen_seq_gg_profile", strategy = GenerationType.SEQUENCE)
 	private long pno;
+
 	@Column(nullable = false)
 	private String url;
+
 	@Column(nullable = false)
 	private String orgName;
+
 	@Column(nullable = false)
 	private String newName;
-	
-	@OnDelete(action= OnDeleteAction.CASCADE)
+
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn
 	@ManyToOne
 	private MemberEntity member;
+
 }
