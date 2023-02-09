@@ -122,3 +122,20 @@
 	margin-left: 30px;
 	color: #f6d256;
 }
+
+/* 날씨 api */
+#Today-weather {
+	border: 1px solid #f6d256;
+	border-radius: 15px;
+	display: block;
+	width: 540px;
+	margin: 10px;
+}
+.subtitle {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 24px;
+	font-weight: bold;
+	color: #f6d256;
+}
+

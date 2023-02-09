@@ -3,12 +3,68 @@
 <head>
  	<th:block th:insert="~{admin/AdminLayout :: head}"/>
 	<link rel="stylesheet" href="/css/admin/ggAdmin.css">
+	<!-- 0209 재근 날씨 아이콘 -->
+	<script defer
+		src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
+		integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF"
+		crossorigin="anonymous">
+	</script>
 	<th:block th:insert="~{admin/AdminLayout :: header}"/>
 
 	<script type="text/javascript">
-	$(function(){
-		
-	});
+	$(function() {
+		//0209 재근 날씨 api
+		var weatherIcon = {
+			'01' : 'fas fa-sun',
+			'02' : 'fas fa-cloud-sun',
+			'03' : 'fas fa-cloud',
+			'04' : 'fas fa-cloud-meatball',
+			'09' : 'fas fa-cloud-sun-rain',
+			'10' : 'fas fa-cloud-showers-heavy',
+			'11' : 'fas fa-poo-storm',
+			'13' : 'far fa-snowflake',
+			'50' : 'fas fa-smog'
+		};
+	
+		var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="
+				+ 'Seoul' + "&lang=" + "kr" + "&appid="
+				+ "6c768b2acf055ef8e01410959d996966";
+		$.ajax({
+			url : apiURI,
+			dataType : "json",
+			type : "GET",
+			async : "false",
+			success : function(resp) {
+
+				var $Icon = (resp.weather[0].icon).substr(0, 2);
+				var $weather_description = resp.weather[0].main;
+				var $Temp = Math.floor(resp.main.temp - 273.15) + 'º';
+				var $humidity = '습도&nbsp;&nbsp;&nbsp;&nbsp;'
+						+ resp.main.humidity + ' %';
+				var $wind = '바람&nbsp;&nbsp;&nbsp;&nbsp;'
+						+ resp.wind.speed + ' m/s';
+				var $city = '서울';
+				var $cloud = '구름&nbsp;&nbsp;&nbsp;&nbsp;'
+						+ resp.clouds.all + "%";
+				var $temp_min = '최저 온도&nbsp;&nbsp;&nbsp;&nbsp;'
+						+ Math.floor(resp.main.temp_min - 273.15) + 'º';
+				var $temp_max = '최고 온도&nbsp;&nbsp;&nbsp;&nbsp;'
+						+ Math.floor(resp.main.temp_max - 273.15) + 'º';
+
+				$('.weather_icon').append(
+					'<i class="' + weatherIcon[$Icon] +' fa-5x" style="height : 80px; width : 80px;"></i>');
+				$('.weather_description').prepend($weather_description);
+				$('.current_temp').prepend($Temp);
+				$('.humidity').prepend($humidity);
+				$('.wind').prepend($wind);
+				$('.city').append($city);
+				$('.cloud').append($cloud);
+				$('.temp_min').append($temp_min);
+				$('.temp_max').append($temp_max);
+			}
+		})		
+	}); //날씨 끝
+	
 	function already(el){
 		var btnType = $(el).text();
 		
@@ -141,6 +197,34 @@
 					</form>
 				</li>
 			</ul>
+		</div>
+		<!-- 0209 재근 날씨 api -->
+		<div id="Today-weather">
+			<p class="subtitle" th:text="${#temporals.format(#temporals.createNow(),'MM월 dd일')}+' 날씨'">오늘날씨</p>
+			<div style="color: #ffeba8; height: 100px; width: 540px; border-radius: 15px;">
+				<div style="float: left; margin-left: 30px">
+					<div class="weather_icon"></div>
+				</div>
+				<br>
+				<div class="flex" style="float: right; margin: -10px 0px 0px 30px; padding-right: 20px; font-size: 11pt">
+					<div style="margin-right: 20px;">
+						<div class="temp_min"></div>
+						<div class="temp_max"></div>
+						<div class="humidity"></div>
+					</div>
+					<div>
+						<div class="wind"></div>
+						<div class="cloud"></div>
+					</div>
+				</div>
+				<div class="flex" style="float: right; margin-top: -20px; position: relative;">
+					<div class="current_temp" style="font-size: 40pt; margin-right: 10px"></div>
+					<div>
+						<div class="weather_description" style="font-size: 16pt; margin-top: 10px;"></div>
+						<div class="city" style="font-size: 13pt"></div>
+					</div>
+				</div>
+			</div>
 		</div>
    </main>
 </body>
