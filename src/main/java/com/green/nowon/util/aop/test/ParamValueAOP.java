@@ -22,11 +22,8 @@ public class ParamValueAOP {
     if (arg.getClass().getSimpleName()!=""&&arg!="")
     sb.append("\n            메서드 : {}.{}").append("\n            타입: {}").append("\n            값: {}\n");
   log.debug(sb.toString(), joinPoint.getTarget().getClass().getSimpleName(),
-  ((MethodSignature) joinPoint.getSignature()).getMethod().getName(), arg.getClass().getSimpleName(), arg);
-  });
-  final var result = joinPoint.proceed();
-  stopWatch.stop();
-  sb.setLength(0);
+  ((MethodSignature) joinPoint.getSignature()).getMethod().getName(), arg.getClass().getSimpleName(), arg);});
+  final var result = joinPoint.proceed();stopWatch.stop();sb.setLength(0);
   final var msTot = stopWatch.getTotalTimeMillis() / 1000.0;
   final var extMethod = ((MethodSignature) joinPoint.getSignature()).getMethod().getName();
   final var extClass = joinPoint.getTarget().getClass().getSimpleName();
