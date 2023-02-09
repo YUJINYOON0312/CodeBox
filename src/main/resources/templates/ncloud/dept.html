@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script th:src="@{//ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js}"></script>
+    <link rel="stylesheet" href="/css/commons/common.css" />
+    <script th:inline="javascript">
+      $(function () {
+        var clientId = "[(${clientId})]";
+        var redirectUri = "[(${redirectUri})]";
+        var scope = "[(${scope})]";
+        $.ajax({
+          url: "https://auth.worksmobile.com/oauth2/v2.0/authorize",
+          data: {
+            client_id: clientId,
+            redirect_uri: redirectUri,
+            scope: scope,
+            response_type: "code",
+            state: "test",
+          },
+          success: function () {},
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p>네이버 조직연동</p>
+  </body>
+</html>

@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.green.nowon.domain.entity.approval.ApprovalEntity;
 import com.green.nowon.domain.entity.member.MemberEntity;
 
 import lombok.AllArgsConstructor;
@@ -26,18 +25,17 @@ import lombok.Setter;
 @Getter
 @Entity
 public class AttendanceEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long adno;
-	
+
 	private Date sdate;
-	
+
 	private Date edate;
-	
+
 	private String adtype;
-	
-	
+
 	@ManyToOne
 	private MemberEntity mno;
 

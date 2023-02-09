@@ -12,11 +12,12 @@ import lombok.Getter;
 @Getter
 @MappedSuperclass
 public class BaseDateTimeColumns {
-	
-	//timestamp(6)
+
+	// timestamp(6)
 	@CreationTimestamp
 	private LocalDateTime createdDate;
-	
+
 	@UpdateTimestamp
 	private LocalDateTime updatedDate;
+
 }

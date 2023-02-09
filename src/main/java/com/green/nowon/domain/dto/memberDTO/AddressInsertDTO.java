@@ -6,13 +6,17 @@ import lombok.Setter;
 
 @Setter
 public class AddressInsertDTO {
+
 	private String postcode;
+
 	private String roadAddress;
+
 	private String jibunAddress;
+
 	private String detailAddress;
+
 	private String extraAddress;
-	
-	
+
 	public AddressEntity signin() {
 		return AddressEntity.builder()
 				.postcode(postcode)

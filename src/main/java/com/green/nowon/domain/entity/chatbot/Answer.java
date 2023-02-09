@@ -13,7 +13,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
 @Getter
 @Builder
 @AllArgsConstructor
@@ -21,22 +20,22 @@ import lombok.NoArgsConstructor;
 @Table(name = "answer")
 @Entity
 public class Answer {
-	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long no;
+
 	private String content;
-	
-	private String keyword;//name
-	
+
+	private String keyword;// name
+
 	public Answer keyword(String keyword) {
-		this.keyword=keyword;
+		this.keyword = keyword;
 		return this;
 	}
-	
+
 	public AnswerDTO toAnswerDTO() {
-		return AnswerDTO.builder()
-				.no(no).content(content).keyword(keyword)
-				.build();
+		return AnswerDTO.builder().no(no).content(content).keyword(keyword).build();
 	}
 
 }

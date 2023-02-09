@@ -1,11 +1,26 @@
 @charset "UTF-8";
 
-*{margin: 0; padding: 0; box-sizing: border-box;}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-body{color: #222; font-size: 16px;}
+body {
+  color: #222;
+  font-size: 16px;
+}
 
-h1{position: absolute; left: -9999px;}
+h1 {
+  position: absolute;
+  left: -9999px;
+}
 
-li{list-style: none;}
+li {
+  list-style: none;
+}
 
-a{color:#222; text-decoration: none;}
+a {
+  color: #222;
+  text-decoration: none;
+}

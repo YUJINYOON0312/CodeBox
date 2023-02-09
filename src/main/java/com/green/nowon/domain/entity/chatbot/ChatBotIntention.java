@@ -1,6 +1,5 @@
 package com.green.nowon.domain.entity.chatbot;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,16 +20,19 @@ import lombok.NoArgsConstructor;
 @Table(name = "intention")
 @Entity
 public class ChatBotIntention {
-	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long no;
+
 	private String name;
-	
+
 	@JoinColumn
 	@ManyToOne
 	private Answer answer;
-		
+
 	@JoinColumn
 	@ManyToOne
 	private ChatBotIntention upper;
+
 }

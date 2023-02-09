@@ -2,7 +2,6 @@ package com.green.nowon.service;
 
 import org.springframework.ui.Model;
 
-import com.green.nowon.domain.dto.approval.ApprovalListDTO;
 import com.green.nowon.domain.dto.approval.ApprovalSaveDTO;
 import com.green.nowon.domain.dto.attendance.AttendanceSaveDTO;
 

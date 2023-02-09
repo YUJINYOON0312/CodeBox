@@ -7,18 +7,20 @@ import lombok.Getter;
 
 @Getter
 public class DepartmentMemberDTO {
-	
+
 	private long dmno;
+
 	private DepartmentDTO department;
+
 	private SalaryListDTO salary;
+
 	private PositionDTO position;
-	
-	
+
 	public DepartmentMemberDTO(DepartmentMemberEntity e) {
-		dmno=e.getDmno();
-		salary=new SalaryListDTO(e.getMember());
-		department=new DepartmentDTO(e.getDepartment());
-		position=new PositionDTO(e.getMember().getPno());
+		dmno = e.getDmno();
+		salary = new SalaryListDTO(e.getMember());
+		department = new DepartmentDTO(e.getDepartment());
+		position = new PositionDTO(e.getMember().getPno());
 	}
 
 }

@@ -12,13 +12,10 @@ public class PositionServiceProcess implements PositionService {
 
 	@Autowired
 	PositionRepository repo;
-	
+
 	@Override
 	public void save(String name, int salary) {
-		repo.save(PositionEntity.builder()
-				.normalSalary(salary)
-				.pName(name)
-				.build());
+		repo.save(PositionEntity.builder().normalSalary(salary).pName(name).build());
 	}
 
 }
