@@ -60,7 +60,6 @@ public class MemberSerivceProc implements MemberService {
 		addressRepo.save(adto.signin().member(memberRepo.findById(id).orElseThrow()));// 주소저장
 		// System.err.println(">>>>>>>>>>>>>111111111111111111" + mdto.getId());
 
-		System.err.println(memberRepo.findById(id));
 		final long mno = memberRepo.findById(id).orElseThrow().getMno();// 사번
 		// System.err.println(">>>>>>>>>>>>>2222222222222222"+mno);
 
@@ -89,7 +88,6 @@ public class MemberSerivceProc implements MemberService {
 	public void update(final long mno, final MemberUpdateDTO dto) {
 		MemberEntity entityImg = null;
 		final Optional<MemberEntity> result = memberRepo.findById(mno);
-		System.err.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + result);
 		if (result.isPresent()) {
 			final MemberEntity entity = result.get();
 			entity.update(dto).setPass(pe.encode(dto.getPass()));

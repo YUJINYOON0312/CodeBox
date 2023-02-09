@@ -28,14 +28,12 @@ public class MemberController {
 
 	@GetMapping("/mypage/{mno}")
 	public String detail(@PathVariable long mno, Model model) {
-		System.err.println(">>>>>>>>>>>>>>>>" + mno);
 		memberService.detail(mno, model);
 		return "mypage/employee-detail";
 	}
 
 	@PostMapping("/mypage/{mno}/update")
 	public String update(@PathVariable long mno, MemberUpdateDTO dto) {
-		System.err.println(">>>>>>>>>>>update : " + mno);
 		memberService.update(mno, dto);
 		return "redirect:/mypage/info/{mno}";
 	}
