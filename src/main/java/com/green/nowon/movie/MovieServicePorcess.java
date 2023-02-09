@@ -103,7 +103,6 @@ public class MovieServicePorcess implements MovieService {
 	// 네이버api 에서 영화이미지를 획득하기위한 목적이었음
 	private String naverApiMovie(String query, String openDt) {
 		openDt = openDt.substring(0, 4);
-		System.out.println(openDt);
 
 		try {
 			query = URLEncoder.encode(query, "UTF-8");

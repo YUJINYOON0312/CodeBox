@@ -49,7 +49,6 @@ public class MyPageServiceProcess implements MyPageService {
 	@Transactional
 	@Override
 	public void info(final long mno, final Model model) {
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>mno= " + mno);
 
 		// 로그인한 회원의 정보 + 회원이 등록한 이미지
 		model.addAttribute("detail", mRepo.findById(mno).map(SalaryListDTO::new).orElseThrow());
@@ -115,7 +114,7 @@ public class MyPageServiceProcess implements MyPageService {
 
 		// 기존부서 일괄 삭제
 		final List<DepartmentMemberEntity> temp = dmRepo.findAllByMember_mno(mno);
-		for (final DepartmentMemberEntity d : temp) System.out.println(">>>>>>>>>>>>>>>>>>>>>>" + temp);
+		for (final DepartmentMemberEntity d : temp);
 		dmRepo.deleteByMember_mno(mno);
 		dmRepo.save(DepartmentMemberEntity.builder() // 부서등록
 				.department(DepartmentEntity.builder().dno(dno).build())

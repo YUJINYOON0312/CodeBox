@@ -79,7 +79,6 @@ public class KomoranConfig {
 			keys.forEach(key -> {
 				try {
 					bw.write(key + "\tNNP\n");
-					System.out.println(key);
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}

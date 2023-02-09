@@ -30,7 +30,6 @@ public class NcloudController {
 
 	@GetMapping("/naver/oauth2")
 	public String naverOauth2(String code, String state) {
-		System.out.println("-----------------------" + code);
 		return "ncloud/dept";
 	}
 

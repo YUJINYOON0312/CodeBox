@@ -35,7 +35,6 @@ public class MyPageController {
 
 	@PatchMapping("/mypage/{id}/update")
 	public String update(@PathVariable long id, MemberUpdateDTO dto) {
-		System.out.println("update patch 작동");
 		memberService.update(id, dto);
 		return "redirect:/admin/goods/list";
 	}

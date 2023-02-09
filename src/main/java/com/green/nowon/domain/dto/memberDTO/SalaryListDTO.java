@@ -104,7 +104,6 @@ public class SalaryListDTO {
 			totSal = 0;
 
 		}
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 스타트겟프로파일");
 
 		if (e.getProfile() != null) {
 			profileUrl = e.getProfile().getUrl() + e.getProfile().getNewName();

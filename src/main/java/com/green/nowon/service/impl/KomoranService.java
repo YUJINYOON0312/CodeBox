@@ -35,7 +35,7 @@ public class KomoranService {
 
 		// 문자에서 명사들만 추출한 목록 중복제거해서 set
 		Set<String> nouns = result.getNouns().stream().collect(Collectors.toSet());
-		nouns.forEach(noun -> { System.out.println(">>>:" + noun); });// 메세지에서 명사추출
+		// nouns.forEach(noun -> { System.out.println(">>>:" + noun); });// 메세지에서 명사추출
 
 		return analyzeToken(nouns);
 	}
@@ -57,7 +57,6 @@ public class KomoranService {
 			if (result.isEmpty()) continue;// 존재하지 않으면 다음토큰 검색
 
 			// 1차 토근확인시 실행
-			System.out.println(">>>>1차:" + token);
 			// 1차목록 복사
 			Set<String> next = nouns.stream().collect(Collectors.toSet());
 			// 목록에서 1차토큰 제거
@@ -119,7 +118,6 @@ public class KomoranService {
 			// 1차의도를 부모로하는 토큰이 존재하는지 파악
 			Optional<ChatBotIntention> result = decisionTree(token, upper.get());
 			if (result.isEmpty()) continue;
-			System.out.println(">>>>2차:" + token);
 			return result.get().getAnswer();// 1차-2차 존재하는경우 답변
 		}
 		return upper.get().getAnswer();// 1차만 존재하는 답변

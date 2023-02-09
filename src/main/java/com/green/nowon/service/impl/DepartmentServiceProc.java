@@ -70,7 +70,6 @@ public class DepartmentServiceProc implements DepartmentService {
 	@Transactional
 	@Override
 	public void departmentMemberList(Long dno, Model model) {// dno -> department_dno
-		System.out.println("department member List 작동여부");
 		List<DepartmentMemberListDTO> list = departmentMemberRepo.findAllByDepartment_dno(dno)
 				.stream()
 				.map(DepartmentMemberListDTO::new)
