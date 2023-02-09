@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mariadb:loadbalance://mydb.clfrei6saayc.ap-northeast-2.rds.amazonaws.com:3306/mydb
+    username: admin
+    password: dbs11tl29
+    driver-class-name: org.mariadb.jdbc.Driver
