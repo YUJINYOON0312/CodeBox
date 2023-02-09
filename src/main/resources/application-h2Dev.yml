@@ -7,3 +7,6 @@ spring:
     username: sa
     # driver-class-name: org.h2.Driver
     password:
+  jpa:
+    hibernate:
+      ddl-auto: create

@@ -10,8 +10,8 @@ spring:
       hibernate:
         "[format_sql]": true
         "[highlight_sql]": true
-    hibernate:
-      ddl-auto: validate
+    # hibernate:
+    #   ddl-auto: validate
 logging:
   # file:
   #   name: CodeBox.log
