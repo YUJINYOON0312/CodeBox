@@ -1,37 +1,57 @@
-HELP.md
 .gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+/build/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# Ignore Gradle GUI config
+gradle-app.setting
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# Cache of project
+.gradletasknamecache
 
-### VS Code ###
-.vscode/
+# gradle/wrapper/gradle-wrapper.properties
+**/HELP.md
+**/build
+**/.apt_generated
+**/.classpath
+**/.factorypath
+**/.project
+**/.settings
+**/.springBeans
+**/.sts4-cache
+**/bin
+**/.idea
+**/*.iws
+**/*.iml
+**/*.ipr
+**/out
+**/nbproject
+**/nbbuild
+**/dist
+**/nbdist
+**/.nb-gradle
+**/node_modules
+**/Thumbs.db
+**/package-lock.json
+**/build
+**/*.gz
+**/~$*.*
+**/*.tmp
+**/*.log
+**/.vscode
+**/.eslintrc.yml
+**/jsconfig.json
+**/package.json
+**/application-*.yml
+# **/application-*.properties
+# **/*.xml
+#a pplication-ji*.yml
+#a pplication-sa*.yml
+#a pplication-si*.yml
+!application-debug.yml
+#a !**/src/**/etc/application-*.yml
+#a !application-jpa.yml
+#a !application-dba.yml
+#a !application-jpatest.yml
+jsfv.xml

@@ -1,124 +1,124 @@
 @charset "UTF-8";
 
 .commuteListTable {
-	padding: 10px;
-	border: 1px solid #f6d256;
-	border-radius: 20px;
-	margin-top: 10px;
-	margin-left: 10px;
-	width: 700px;
+  padding: 10px;
+  border: 1px solid #f6d256;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 700px;
 }
 
-.commutehead>tr td {
-	padding: 0 10px;
-	text-align: center;
-	font-weight: bold;
-	font-size: 20px;
-	color: #f6d256;
+.commutehead > tr td {
+  padding: 0 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #f6d256;
 }
 
 .commutehead {
-	border: 1px solid #5587a2;
+  border: 1px solid #5587a2;
 }
 
-.commuteList>tr td {
-	padding: 0 10px;
-	color: #ffeba8;
+.commuteList > tr td {
+  padding: 0 10px;
+  color: #ffeba8;
 }
 
 .commuteList {
-	border: 1px solid #f6d256;
+  border: 1px solid #f6d256;
 }
 
 .commuteBox {
-	width: 700px;
-	height: 100px;
-	border: 1px solid #f6d256;
-	border-radius: 15px;
-	margin-top: 10px;
-	margin-left: 10px;
+  width: 700px;
+  height: 100px;
+  border: 1px solid #f6d256;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .Box {
-	margin: auto auto;
-	text-align: center;
+  margin: auto auto;
+  text-align: center;
 }
 
-.Box>.goSpan {
-	text-align: center;
-	color: #ffeba8;
+.Box > .goSpan {
+  text-align: center;
+  color: #ffeba8;
 }
 
-.Box>.offSpan {
-	margin-top: 20px;
-	text-align: center;
-	color: #ffeba8;
+.Box > .offSpan {
+  margin-top: 20px;
+  text-align: center;
+  color: #ffeba8;
 }
 
-.Box>.go {
-	margin: 10px auto;
-	text-align: center;
-	width: 50px;
-	font-weight: bold;
-	font-size: 14px;
-	background-color: #5587a2;
-    color: #f6d256;
-	border-radius: 15px;
-	border-color: #f6d256;
-	padding: 7px;
-	cursor: pointer;
+.Box > .go {
+  margin: 10px auto;
+  text-align: center;
+  width: 50px;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #5587a2;
+  color: #f6d256;
+  border-radius: 15px;
+  border-color: #f6d256;
+  padding: 7px;
+  cursor: pointer;
 }
 
-.Box>.off {
-	margin: 10px auto;
-	text-align: center;
-	width: 50px;
-	font-weight: bold;
-	font-size: 14px;
-	background-color: #5587a2;
-    color: #f6d256;
-	border-radius: 15px;
-	border-color: #f6d256;
-	padding: 7px;
-	cursor: pointer;
+.Box > .off {
+  margin: 10px auto;
+  text-align: center;
+  width: 50px;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #5587a2;
+  color: #f6d256;
+  border-radius: 15px;
+  border-color: #f6d256;
+  padding: 7px;
+  cursor: pointer;
 }
 
 .gameInfo {
-	border: 1px solid #f6d256;
-	border-radius: 15px;
-	height: 425px;
-	text-align: center;
-	margin-top: 10px;
-	margin-left: 10px;
-	padding: 10px;
+  border: 1px solid #f6d256;
+  border-radius: 15px;
+  height: 425px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 10px;
 }
 
 .gameInfo p {
-	font-size: 20px;
-	padding: 0;
-	font-weight: bold;
-	color: #ffeba8;
+  font-size: 20px;
+  padding: 0;
+  font-weight: bold;
+  color: #ffeba8;
 }
 
 .auth_wrap {
-	margin-left: 10px;
+  margin-left: 10px;
 }
 
 .auth_wrap button {
-	margin: 10px auto;
-	text-align: center;
-	width: 75px;
-	font-weight: bold;
-	font-size: 14px;
-	background-color: #5587a2;
-    color: #f6d256;
-	border-radius: 15px;
-	border-color: #f6d256;
-	padding: 7px;
-	cursor: pointer;
+  margin: 10px auto;
+  text-align: center;
+  width: 75px;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #5587a2;
+  color: #f6d256;
+  border-radius: 15px;
+  border-color: #f6d256;
+  padding: 7px;
+  cursor: pointer;
 }
 
-.pageNumber a{
-	margin-left: 30px;
-	color: #f6d256;
+.pageNumber a {
+  margin-left: 30px;
+  color: #f6d256;
 }
