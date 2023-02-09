@@ -46,7 +46,7 @@ public class CommuteServiceProc implements CommuteService {
 	public void save(long mno, CommuteInsertDTO idto, CommuteUpdateDTO udto) {
 		Optional<CommuteEntity> result = findTodayTime(mno);
 		if (result.isEmpty())
-			commuteRepo.save(idto.entity().fkSaver(memberRepo.findByMno(mno).get()));
+			commuteRepo.save(idto.entity().fkSaver(memberRepo.findById(mno).get()));
 		else {
 			CommuteEntity entity = result.get();
 			LocalDateTime start = entity.getGTime();
@@ -86,12 +86,13 @@ public class CommuteServiceProc implements CommuteService {
 		List<CommuteEntity> result = commuteRepo.findAllByMember_mno(mno);
 		long cno = 0L;
 		if (result.isEmpty()) {// 값이 없으면 새로 저장
-			commuteRepo.save(idto.entity().fkSaver(memberRepo.findByMno(mno).get()));
+			commuteRepo.save(idto.entity().fkSaver(memberRepo.findById(mno).get()));
 			return commuteRepo.findById(cno + 1);
 		}
 		for (CommuteEntity i : result) cno = i.getCno();
 		Optional<CommuteEntity> CommuteLastDay = commuteRepo.findById(cno);
-		// System.out.println("최근날짜 확인>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+CommuteLastDay.get().getToday());
+		// System.out.println("최근날짜
+		// 확인>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+CommuteLastDay.get().getToday());
 		return commuteRepo.findById(cno);
 	}
 
@@ -128,7 +129,7 @@ public class CommuteServiceProc implements CommuteService {
 		// 없으면 기본값
 		String workStart = "출근 시간";
 		String workEnd = "퇴근 시간";
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d일 a h시간 mm분");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("D일 a h시간 mm분");
 		Optional<CommuteEntity> todayDate = findTodayTime(mno);
 		if (todayDate.isPresent()) {// 있으면 그녀석
 			workStart = todayDate.get().getGTime().format(dateTimeFormatter).toString();

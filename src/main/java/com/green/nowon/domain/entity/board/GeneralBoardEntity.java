@@ -51,7 +51,11 @@ public class GeneralBoardEntity extends BaseDateTimeColumns {
 		title = dto.getTitle();
 		content = dto.getContent();
 		return this;
+	}
 
+	// 조회수
+	public void updateReadCount() {
+		readCount++;
 	}
 
 }

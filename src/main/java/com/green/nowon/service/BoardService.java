@@ -40,9 +40,9 @@ public interface BoardService {
 
 	void myGetListAll02(Model model, long mno);
 
-	int updateReadCount(Long bno); // 조회수
+	void updateReadCount(Long bno); // 조회수
 
-	int genUpdateReadCount(Long bno); // 자유게시판 조회수
+	void genUpdateReadCount(Long bno); // 자유게시판 조회수
 
 	// void search(String keyword, Model model);
 

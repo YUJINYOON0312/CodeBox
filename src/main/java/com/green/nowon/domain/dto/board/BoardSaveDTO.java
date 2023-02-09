@@ -6,7 +6,7 @@ import java.util.List;
 import com.green.nowon.domain.entity.board.BoardEntity;
 import com.green.nowon.domain.entity.board.BoardImgEntity;
 import com.green.nowon.domain.entity.member.MemberEntity;
-import com.green.nowon.util.MybFileUtils;
+import com.green.nowon.util.MyFileUtils;
 
 import lombok.Data;
 import lombok.Getter;
@@ -30,7 +30,7 @@ public class BoardSaveDTO {
 	public List<BoardImgEntity> toBoardListImgs(BoardEntity entity, String url) {
 		List<BoardImgEntity> imgs = new ArrayList<>();
 		for (int i = 0; i < orgName.length; i++) {
-			if (orgName[i].equals("") || orgName[i] == null) continue;
+			if ("".equals(orgName[i]) || orgName[i] == null) continue;
 			boolean def = false;
 			if (i == 0) def = true;
 			BoardImgEntity bim = BoardImgEntity.builder()
@@ -43,7 +43,7 @@ public class BoardSaveDTO {
 			imgs.add(bim);
 		}
 		// temp 폴더 상위 폴더인 upload로 이동
-		MybFileUtils.moveUploadLocationFromTemp(newName, url);
+		MyFileUtils.moveUploadLocationFromTemp(newName, url);
 		return imgs;
 	}
 

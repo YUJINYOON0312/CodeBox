@@ -76,6 +76,7 @@ public class BoardEntity extends BaseDateTimeColumns {
 		for (BoardImgEntity bimg : imgs) if (bimg.isDef()) return bimg;
 		BoardImgEntity def = null;
 		if (imgs.size() != 0) def = imgs.get(0);
+
 		return def;
 
 		// 이미지 없으면(사이즈 0) null
@@ -87,6 +88,11 @@ public class BoardEntity extends BaseDateTimeColumns {
 		content = dto.getContent();
 		return this;
 
+	}
+
+	// 조회수
+	public void updateReadCount() {
+		readCount++;
 	}
 
 }

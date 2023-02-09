@@ -35,7 +35,7 @@ import com.green.nowon.domain.entity.board.GeneralBoardEntity;
 import com.green.nowon.domain.entity.member.MemberEntity;
 import com.green.nowon.domain.entity.member.MemberEntityRepository;
 import com.green.nowon.service.BoardService;
-import com.green.nowon.util.MybFileUtils;
+import com.green.nowon.util.MyFileUtils;
 
 import lombok.RequiredArgsConstructor;
 
@@ -154,7 +154,7 @@ public class BoardServiceProc implements BoardService {
 	@Override // 이미지
 	public Map<String, String> fileTempUpload(MultipartFile bimg) {
 
-		return MybFileUtils.fileUpload(bimg, locationTemp);
+		return MyFileUtils.fileUpload(bimg, locationTemp);
 	}
 
 	@Transactional
@@ -188,8 +188,8 @@ public class BoardServiceProc implements BoardService {
 	// 공지사항 조회수
 	@Override
 	@Transactional
-	public int updateReadCount(Long bno) {
-		return repository.updateReadCount(bno);
+	public void updateReadCount(Long bno) {
+		repository.findById(bno).orElseThrow().updateReadCount();
 	}
 
 	/* 여기서부터 자유게시판 입니다 */
@@ -277,8 +277,9 @@ public class BoardServiceProc implements BoardService {
 	// 자유조회수
 	@Override
 	@Transactional
-	public int genUpdateReadCount(Long bno) {
-		return geRepo.genUpdateReadCount(bno);
+	public void genUpdateReadCount(Long bno) {
+		geRepo.findById(bno).orElseThrow().updateReadCount();
+
 	}
 
 	// 자유 검색
