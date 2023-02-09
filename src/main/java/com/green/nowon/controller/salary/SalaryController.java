@@ -36,7 +36,6 @@ public class SalaryController {
 
 	@PostMapping("/salary/salary")
 	public String salaryUpdate(long mno, double plSal, int totSal, Model model) {
-		System.err.println(mno + ">>>>>>>>>>>>>>>>>>>>" + plSal + ">>>>>>>>>>>>>" + totSal);
 		service.update2(mno, plSal, totSal);
 		service.salaryInfo(mno, model);
 		return "/member/salary-detail";

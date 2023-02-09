@@ -20,7 +20,6 @@ public class EmployeeServiceProc implements EmployeeService {
 		if (parentDno.intValue() == 0) parentDno = null;
 		List<DepartmentEntity> result = deRepo.findAllByParentDno(parentDno);
 		model.addAttribute("list", result);
-		System.err.println(">>>>>>>>>>>>>" + result);
 
 	}
 

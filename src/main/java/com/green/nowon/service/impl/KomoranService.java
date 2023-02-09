@@ -101,13 +101,11 @@ public class KomoranService {
 			long mno = m.get().getMno();
 			Optional<DepartmentMemberEntity> dM = DeptMember.findAllByMemberMno(mno);
 			String deptName = dM.get().getDepartment().getDname();
-			System.err.println(">>>>>>>>>>>>>>>>>>>부서명:" + deptName);
 			String phone = m.get().getPhone();
 			String memberName = m.get().getName();
 			return PhoneInfo.builder().deptName(deptName).phone(phone).memberName(memberName).build();
 
 		}
-		System.err.println("값이 없는데요?");
 		return null;
 	}
 
