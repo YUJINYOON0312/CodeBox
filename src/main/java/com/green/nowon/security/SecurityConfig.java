@@ -15,7 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
 	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	SecurityFilterChain securityFilterChain(final HttpSecurity http) throws Exception {
 		http.authorizeRequests(authorize -> authorize.antMatchers("/css/**", "/images/**", "/js/**")
 				.permitAll()
 				.antMatchers("/log/signup")

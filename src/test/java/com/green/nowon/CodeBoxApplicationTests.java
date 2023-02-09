@@ -11,7 +11,7 @@ import com.green.nowon.domain.entity.cate.DepartmentEntityRepository;
 import com.green.nowon.domain.entity.cate.DepartmentMemberEntity;
 import com.green.nowon.domain.entity.cate.DepartmentMemberEntityRepository;
 import com.green.nowon.domain.entity.member.AddressEntity;
-import com.green.nowon.domain.entity.member.AddressEntityRepsoitory;
+import com.green.nowon.domain.entity.member.AddressEntityRepository;
 import com.green.nowon.domain.entity.member.MemberEntity;
 import com.green.nowon.domain.entity.member.MemberEntityRepository;
 import com.green.nowon.security.MyRole;
@@ -23,7 +23,7 @@ class CodeBoxApplicationTests {
 	MemberEntityRepository repo;
 
 	@Autowired
-	AddressEntityRepsoitory addressrepo;
+	AddressEntityRepository addressrepo;
 
 	@Autowired
 	DepartmentMemberEntityRepository dmRepo;
@@ -59,7 +59,7 @@ class CodeBoxApplicationTests {
 				.jibunAddress("서울 노원구 공릉동 661-11")
 				.detailAddress("노원그린아카데미")
 				.extraAddress("(공릉동)")
-				.member(repo.findById("admin"))
+				.member(repo.findById("admin").orElseThrow())
 				.build());
 		// 부서 설정 -> 회사명만 만들기 임시 관리자가 부서를 생성해 주어야 합니다.
 		departmentRepo.save(DepartmentEntity.builder().dname("코드박스").depth(1).parent(null).build());

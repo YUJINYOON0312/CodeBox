@@ -21,7 +21,8 @@ public class MyUserDetails extends User {
 	/**
 	 *
 	 */
-	// private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
+
 	private String id;
 
 	private String name;
@@ -57,7 +58,7 @@ public class MyUserDetails extends User {
 
 		dName = depMemEnt.getDepartment().getDname();
 
-		for (MyRole role : memEnt.getRoles()) if (role.name().equals("ADMIN")) admin = true;
+		for (MyRole role : memEnt.getRoles()) if ("ADMIN".equals(role.name())) admin = true;
 		department = depMemEnt.getDepartment();
 		profile = memEnt.getProfile();
 	}

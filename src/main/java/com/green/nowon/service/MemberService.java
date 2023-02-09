@@ -19,6 +19,4 @@ public interface MemberService {
 
 	void update(long mno, MemberUpdateDTO dto);
 
-	void list(Model model);
-
 }

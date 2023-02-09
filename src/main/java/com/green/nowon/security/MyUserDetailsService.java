@@ -12,18 +12,18 @@ import org.springframework.stereotype.Service;
 import com.green.nowon.domain.entity.cate.DepartmentMemberEntity;
 import com.green.nowon.domain.entity.cate.DepartmentMemberEntityRepository;
 import com.green.nowon.domain.entity.member.MemberEntity;
-import com.green.nowon.domain.entity.member.MemberEntityRepository2;
+import com.green.nowon.domain.entity.member.MemberEntityRepository;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private MemberEntityRepository2 repo;
+	private MemberEntityRepository repo;
 
 	@Autowired
 	private DepartmentMemberEntityRepository drepo;
 
-	public MyUserDetailsService(MemberEntityRepository2 memberRepository) {
+	public MyUserDetailsService(MemberEntityRepository memberRepository) {
 		repo = memberRepository;
 
 	}

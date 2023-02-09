@@ -20,7 +20,7 @@ import com.green.nowon.domain.dto.memberDTO.SalaryListDTO;
 import com.green.nowon.domain.entity.cate.DepartmentEntity;
 import com.green.nowon.domain.entity.cate.DepartmentMemberEntity;
 import com.green.nowon.domain.entity.cate.DepartmentMemberEntityRepository;
-import com.green.nowon.domain.entity.member.AddressEntityRepsoitory;
+import com.green.nowon.domain.entity.member.AddressEntityRepository;
 import com.green.nowon.domain.entity.member.MemberEntity;
 import com.green.nowon.domain.entity.member.MemberEntityRepository;
 import com.green.nowon.domain.entity.member.ProfileEntityRepository;
@@ -41,7 +41,7 @@ public class MemberSerivceProc implements MemberService {
 	private MemberEntityRepository memberRepo;
 
 	@Autowired
-	private AddressEntityRepsoitory addressRepo;
+	private AddressEntityRepository addressRepo;
 
 	@Autowired
 	private ProfileEntityRepository ProfileRepo;
@@ -53,15 +53,15 @@ public class MemberSerivceProc implements MemberService {
 	private PasswordEncoder pe;
 
 	@Override
-	public void save(MemberInsertDTO mdto, AddressInsertDTO adto) {
+	public void save(final MemberInsertDTO mdto, final AddressInsertDTO adto) {
 		memberRepo.save(mdto.signin(pe).addRole(MyRole.USER)// .addRole(MyRole.ADMIN)
 		);// 멤버 저장
-		String id = mdto.getId();
-		addressRepo.save(adto.signin().member(memberRepo.findById(id)));// 주소저장
+		final String id = mdto.getId();
+		addressRepo.save(adto.signin().member(memberRepo.findById(id).orElseThrow()));// 주소저장
 		// System.err.println(">>>>>>>>>>>>>111111111111111111" + mdto.getId());
 
 		System.err.println(memberRepo.findById(id));
-		long mno = memberRepo.findById(id).getMno();// 사번
+		final long mno = memberRepo.findById(id).orElseThrow().getMno();// 사번
 		// System.err.println(">>>>>>>>>>>>>2222222222222222"+mno);
 
 		dmRepo.save(DepartmentMemberEntity.builder() // 기본 부서등록
@@ -74,35 +74,29 @@ public class MemberSerivceProc implements MemberService {
 	// 통합DTO사용
 	@Transactional
 	@Override
-	public void detail(long mno, Model model) {
+	public void detail(final long mno, final Model model) {
 		model.addAttribute("detail", memberRepo.findById(mno).map(SalaryListDTO::new).orElseThrow());
-		model.addAttribute("aDetail", addressRepo.findByMember_mno(mno).map(AddressDTO::new).orElseThrow());
+		model.addAttribute("aDetail", addressRepo.findByMemberMno(mno).map(AddressDTO::new).orElseThrow());
 	}
 
 	@Override
-	public Map<String, String> fileTempUpload(MultipartFile img) {
+	public Map<String, String> fileTempUpload(final MultipartFile img) {
 		return MyFileUtils.fileUpload(img, locationTemp);
 	}
 
 	@Transactional
 	@Override
-	public void update(long mno, MemberUpdateDTO dto) {
+	public void update(final long mno, final MemberUpdateDTO dto) {
 		MemberEntity entityImg = null;
-		Optional<MemberEntity> result = memberRepo.findByMno(mno);
+		final Optional<MemberEntity> result = memberRepo.findById(mno);
 		System.err.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + result);
 		if (result.isPresent()) {
-			MemberEntity entity = result.get();
+			final MemberEntity entity = result.get();
 			entity.update(dto).setPass(pe.encode(dto.getPass()));
 			entityImg = memberRepo.save(entity);
 			ProfileRepo.deleteByMember_mno(mno);
 			dto.toItemListImgs(entityImg, locationUpload).forEach(ProfileRepo::save);
 		}
-	}
-
-	@Override
-	public void list(Model model) {
-		// model.addAttribute("list", memberRepo.findAll().stream()
-		// .map(MemberDTO::new).collect(Collectors.toList()));
 	}
 
 }

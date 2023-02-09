@@ -87,7 +87,8 @@ public class MemberEntity extends BaseDateEntity {
 	private PositionEntity pno;// position 으로 바꾸길 추천
 
 	// @Builder.Default
-	// @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	// @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch =
+	// FetchType.EAGER)
 	@OneToOne(mappedBy = "member", optional = true)
 	// List<ProfileEntity> profile=new ArrayList<>();
 	ProfileEntity profile;

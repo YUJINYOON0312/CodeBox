@@ -11,19 +11,19 @@ spring:
         "[format_sql]": true
         "[highlight_sql]": true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
 logging:
   # file:
   #   name: CodeBox.log
   level:
     # SQL
-    # "[org.hibernate.SQL]": debug
+    "[org.hibernate.SQL]": debug
 
     # SQL value
     # "[org.hibernate.type.descriptor.sql]": trace
 
     # ParamValueAOP
-    "[codebox.util.aop.test.ParamValueAOP]": debug
+    "[com.green.nowon.util.aop.test.ParamValueAOP]": debug
 
     # TimeMeasureAOP
-    "[codebox.util.aop.test.TimeMeasureAOP]": debug
+    "[com.green.nowon.util.aop.test.TimeMeasureAOP]": debug
