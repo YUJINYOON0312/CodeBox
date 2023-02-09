@@ -37,7 +37,6 @@ public class BusServiceProcess implements BusService {
 		}
 
 		String apiURL = urlBuilder.toString();
-		System.out.println(apiURL);
 		Map<String, String> requestHeaders = new HashMap<>();
 		requestHeaders.put("Content-type", "application/json");
 
@@ -57,8 +56,6 @@ public class BusServiceProcess implements BusService {
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
-
-		System.out.println(responseData);
 
 	}
 

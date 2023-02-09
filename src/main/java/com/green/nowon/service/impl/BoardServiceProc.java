@@ -125,8 +125,6 @@ public class BoardServiceProc implements BoardService {
 
 		Optional<BoardEntity> temp = repository.findById(bno);
 
-		System.out.println(">>>>>>>>>>>>>>>>" + temp.isEmpty());
-
 		model.addAttribute("detail", repository.findById(bno).map(BoardDetailDTO::new).orElseThrow());
 
 	}
@@ -340,13 +338,6 @@ public class BoardServiceProc implements BoardService {
 				.collect(Collectors.toList());
 
 		Optional<MemberEntity> writerMem = memRepo.findById(mno);
-
-		System.out.println(" >>>>리이이이이절트 : " + result.size());
-
-		for (GenBoardListDTO bo : result) {
-			System.out.println(">>>>>>>>>>>>>>>>" + bo.getTitle());
-			System.out.println(">>>>>>>>>>>>>>>>" + bo.getWriterId());
-		}
 
 		model.addAttribute("list2", result);
 		model.addAttribute("writerName", writerMem.get().getName());

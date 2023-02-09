@@ -52,7 +52,6 @@ public class CommuteServiceProc implements CommuteService {
 			LocalDateTime start = entity.getGTime();
 			LocalDateTime end = LocalDateTime.now();
 			long timeset = start.until(end, ChronoUnit.HOURS);
-			System.out.println(">>>>>>>>>>>>>>>>>>>>" + timeset);
 			entity.update(udto, timeset);
 
 			commuteRepo.save(entity);

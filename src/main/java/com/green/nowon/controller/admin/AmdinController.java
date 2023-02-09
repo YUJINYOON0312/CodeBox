@@ -41,7 +41,6 @@ public class AmdinController {
 
 	@PostMapping("/admin/position")
 	public String addPosition(String name, int salary) {
-		System.out.println(name);
 		service.save(name, salary);
 		return "/admin/position";
 	}

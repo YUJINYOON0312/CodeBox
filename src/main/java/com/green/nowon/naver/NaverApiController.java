@@ -43,10 +43,10 @@ public class NaverApiController {
 		String responseJSONData = null;
 		if (responseCode == HttpURLConnection.HTTP_OK) {
 			responseJSONData = readBody(con.getInputStream());
-			System.out.println("정상");
+			// System.out.println("정상");
 		} else {
 			responseJSONData = readBody(con.getErrorStream());
-			System.out.println("에러");
+			// System.out.println("에러");
 		}
 		con.disconnect();
 		// */
@@ -54,12 +54,9 @@ public class NaverApiController {
 		ObjectMapper mapper = new ObjectMapper();
 
 		NaverTokenDTO dto = mapper.readValue(responseJSONData, NaverTokenDTO.class);
-		System.out.println(dto);
 		OrgResponse orgResponse = getOrgUnit(dto);
 		// getOrgUnit(responseJSONData);
 		// System.out.println(">>>:"+responseJSONData);
-		System.out.println("====================");
-		System.out.println(orgResponse);
 		model.addAttribute("naverList", orgResponse.getOrgUnits());
 		return "naver/naver-auth2";
 	}
@@ -86,10 +83,10 @@ public class NaverApiController {
 		String responseJSONData = null;
 		if (responseCode == HttpURLConnection.HTTP_OK) {
 			responseJSONData = readBody(con.getInputStream());
-			System.out.println(">>>정상");
+			// System.out.println(">>>정상");
 		} else {
 			responseJSONData = readBody(con.getErrorStream());
-			System.out.println(">>>에러");
+			// System.out.println(">>>에러");
 		}
 		con.disconnect();
 		// System.out.println(responseJSONData);

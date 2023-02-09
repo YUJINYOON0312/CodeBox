@@ -98,7 +98,6 @@ public class CalendarServiceProc implements CalendarService {
 	// 캘린더 Delete
 	@Override
 	public void delete2(long cno2) {
-		System.out.println("proc" + cno2);
 		crepo2.deleteById(cno2);
 
 	}
