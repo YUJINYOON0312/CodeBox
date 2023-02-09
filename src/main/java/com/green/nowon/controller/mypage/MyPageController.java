@@ -14,7 +14,7 @@ import com.green.nowon.service.MemberService;
 import com.green.nowon.service.mypage.MyPageService;
 
 @Controller
-public class myPageController {
+public class MyPageController {
 
 	@Autowired
 	private MyPageService service;
