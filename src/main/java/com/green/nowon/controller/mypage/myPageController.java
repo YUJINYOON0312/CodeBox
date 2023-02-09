@@ -15,26 +15,24 @@ import com.green.nowon.service.mypage.MyPageService;
 
 @Controller
 public class myPageController {
-	
+
 	@Autowired
 	private MyPageService service;
-	
+
 	@Autowired
 	private BoardService boardService;
-	
+
 	@Autowired
 	private MemberService memberService;
-	
-	@GetMapping("/mypage/info/{mno}")
-	public String myPageInfo(@PathVariable long mno,@RequestParam(defaultValue = "1") int page, Model model) {
-		service.info(mno,model);
-		boardService.myGetListAll(page, model);
-		boardService.myGetListAll02(model,mno);
-		return"mypage/mypage";
-	}
-	
 
-	
+	@GetMapping("/mypage/info/{mno}")
+	public String myPageInfo(@PathVariable long mno, @RequestParam(defaultValue = "1") int page, Model model) {
+		service.info(mno, model);
+		boardService.myGetListAll(page, model);
+		boardService.myGetListAll02(model, mno);
+		return "mypage/mypage";
+	}
+
 	@PatchMapping("/mypage/{id}/update")
 	public String update(@PathVariable long id, MemberUpdateDTO dto) {
 		System.out.println("update patch 작동");

@@ -30,24 +30,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "gg_reply")
 @Entity
-public class ReplyEntity extends BaseDateTimeColumns{
-	
+public class ReplyEntity extends BaseDateTimeColumns {
+
 	@Id
 	@GeneratedValue(generator = "gg_gen_reply_seq", strategy = GenerationType.SEQUENCE)
 	private long rno;
+
 	@Column(nullable = false)
 	private String content;
-	
+
 	@JoinColumn(name = "mno")
 	@ManyToOne(cascade = CascadeType.DETACH)
 	private MemberEntity member;
-	
-	
+
 	@JoinColumn(name = "bno")
 	@ManyToOne(cascade = CascadeType.DETACH)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private BoardEntity board;
 
-	//private String writerName; dto에서 처리
-	
+	// private String writerName; dto에서 처리
+
 }

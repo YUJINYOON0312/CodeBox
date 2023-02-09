@@ -6,5 +6,7 @@ import lombok.Data;
 
 @Data
 public class MsgBody {
+
 	private List<BusRouteItem> itemList;
+
 }

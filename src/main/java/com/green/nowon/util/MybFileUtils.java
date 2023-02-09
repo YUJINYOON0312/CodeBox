@@ -11,43 +11,40 @@ import org.springframework.web.multipart.MultipartFile;
 public class MybFileUtils {
 
 	public static void moveUploadLocationFromTemp(String[] newName, String url) {
-		ClassPathResource cpr = new ClassPathResource("static"+url+"temp/");
-		
-		for(String name:newName) {
-			try {
-				File file = new File(cpr.getFile(), name);
-				file.renameTo(new File(cpr.getFile().getParent(), name));
-			} catch (Exception e) {
-				
-			}
+		ClassPathResource cpr = new ClassPathResource("static" + url + "temp/");
+
+		for (String name : newName) try {
+			File file = new File(cpr.getFile(), name);
+			file.renameTo(new File(cpr.getFile().getParent(), name));
+		} catch (Exception e) {
+
 		}
 	}
 
 	public static Map<String, String> fileUpload(MultipartFile gimg, String location) {
-		ClassPathResource cpr = new ClassPathResource("static"+location);
+		ClassPathResource cpr = new ClassPathResource("static" + location);
 		File folder = null;
 		String fileName = null;
 		String orgName = null;
 		try {
 			folder = cpr.getFile();
 			orgName = gimg.getOriginalFilename();
-			
-			int idx = orgName.lastIndexOf(".");//파일 이름중에서 마지막(.)의 인덱스 번호
-			fileName = orgName.substring(0, idx)
-					+"_"+(System.nanoTime()/1000000)
-					+orgName.substring(idx);// .+확장자
-			
+
+			int idx = orgName.lastIndexOf(".");// 파일 이름중에서 마지막(.)의 인덱스 번호
+			fileName = orgName.substring(0, idx) + "_" + System.nanoTime() / 1000000 + orgName.substring(idx);// .+확장자
+
 			gimg.transferTo(new File(folder, fileName));
-		} catch(IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		Map<String, String> tempfile = new HashMap<>();
 		tempfile.put("newName", fileName);
 		tempfile.put("orgName", orgName);
-		tempfile.put("url", location+fileName);
+		tempfile.put("url", location + fileName);
 		return tempfile;
 	}
-	
-	private MybFileUtils() {}
 
+	private MybFileUtils() {
 	}
+
+}

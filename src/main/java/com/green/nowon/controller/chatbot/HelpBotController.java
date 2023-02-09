@@ -12,12 +12,13 @@ public class HelpBotController {
 
 	@Autowired
 	private KomoranService komoranService;
-	
+
 	@PostMapping("/hbot")
-	public String message(String message,Model model) throws Exception {
-		
+	public String message(String message, Model model) throws Exception {
+
 		model.addAttribute("msg", komoranService.nlpAnalyze(message));
-		
+
 		return "chatbot/bot-message";
 	}
+
 }

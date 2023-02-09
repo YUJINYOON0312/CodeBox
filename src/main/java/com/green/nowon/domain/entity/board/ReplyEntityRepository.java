@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.green.nowon.domain.dto.board.reply.ReplySaveDTO;
 
 @Repository
-public interface ReplyEntityRepository extends JpaRepository<ReplyEntity, Long>{
+public interface ReplyEntityRepository extends JpaRepository<ReplyEntity, Long> {
 
 	void save(ReplySaveDTO dto);
 

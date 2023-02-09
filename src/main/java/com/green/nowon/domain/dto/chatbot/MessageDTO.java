@@ -10,18 +10,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class MessageDTO {
-	
+
 	private String today;
+
 	private String time;
-	
+
 	private AnswerDTO answer;
 
 	public MessageDTO today(String today) {
-		this.today=today;
-		return this;		
+		this.today = today;
+		return this;
 	}
+
 	public MessageDTO answer(AnswerDTO answer) {
-		this.answer=answer;
-		return this;		
+		this.answer = answer;
+		return this;
 	}
+
 }

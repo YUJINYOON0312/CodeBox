@@ -4,9 +4,7 @@ import org.springframework.ui.Model;
 
 public interface MyPageService {
 
-
 	void info(long mno, Model model);
-
 
 	void list(long mno, Model model);
 
@@ -14,10 +12,6 @@ public interface MyPageService {
 
 	void update(long mno, long pno, long dno);
 
-
 	void update2(long mno, double plSal, Integer totSal);
 
-	
-
-	
 }
