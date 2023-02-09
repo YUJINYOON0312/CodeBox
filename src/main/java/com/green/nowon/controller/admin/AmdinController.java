@@ -14,7 +14,7 @@ import com.green.nowon.service.PositionService;
 import com.green.nowon.service.attendance.CommuteService;
 
 @Controller
-public class amdinController {
+public class AmdinController {
 
 	@Autowired
 	private CommuteService commuteService;
