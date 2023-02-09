@@ -19,8 +19,9 @@ public class ParamValueAOP {
   final var stopWatch = new StopWatch(); stopWatch.start();
   StringBuilder sb = new StringBuilder("\n\n--------------------------------------------------------------\n");
   Arrays.asList(joinPoint.getArgs()).forEach(arg -> {
-    if (arg.getClass().getSimpleName().length()==0&&arg!="")
-    sb.append("\n            메서드 : {}.{}").append("\n            타입: {}").append("\n            값: {}\n");
+    if (arg.getClass().getSimpleName().length()>0&&arg!="")
+    sb.append("\n            메서드 : {}.{}").append("\n            타입: {}").append("\n            값: {}\n")
+    .append("\n--------------------------------------------------------------\n");
   log.debug(sb.toString(), joinPoint.getTarget().getClass().getSimpleName(),
   ((MethodSignature) joinPoint.getSignature()).getMethod().getName(), arg.getClass().getSimpleName(), arg);});
   final var result = joinPoint.proceed();stopWatch.stop();sb.setLength(0);
