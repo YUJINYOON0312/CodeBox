@@ -128,7 +128,7 @@ public class CommuteServiceProc implements CommuteService {
 		// 없으면 기본값
 		String workStart = "출근 시간";
 		String workEnd = "퇴근 시간";
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("D일 a h시간 mm분");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("일 a h시간 mm분");
 		Optional<CommuteEntity> todayDate = findTodayTime(mno);
 		if (todayDate.isPresent()) {// 있으면 그녀석
 			workStart = todayDate.get().getGTime().format(dateTimeFormatter).toString();
