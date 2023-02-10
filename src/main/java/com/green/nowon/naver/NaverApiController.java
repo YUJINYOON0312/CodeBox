@@ -41,13 +41,11 @@ public class NaverApiController {
 		// con.setRequestProperty("content-type", "application/x-www-form-urlencoded");
 		int responseCode = con.getResponseCode();
 		String responseJSONData = null;
-		if (responseCode == HttpURLConnection.HTTP_OK) {
+		if (responseCode == HttpURLConnection.HTTP_OK)
 			responseJSONData = readBody(con.getInputStream());
-			// System.out.println("정상");
-		} else {
-			responseJSONData = readBody(con.getErrorStream());
-			// System.out.println("에러");
-		}
+		// System.out.println("정상");
+		else responseJSONData = readBody(con.getErrorStream());
+		// System.out.println("에러");
 		con.disconnect();
 		// */
 		// System.out.println(responseData); JSON 형식 문자열데이터
@@ -81,13 +79,11 @@ public class NaverApiController {
 
 		int responseCode = con.getResponseCode();
 		String responseJSONData = null;
-		if (responseCode == HttpURLConnection.HTTP_OK) {
+		if (responseCode == HttpURLConnection.HTTP_OK)
 			responseJSONData = readBody(con.getInputStream());
-			// System.out.println(">>>정상");
-		} else {
-			responseJSONData = readBody(con.getErrorStream());
-			// System.out.println(">>>에러");
-		}
+		// System.out.println(">>>정상");
+		else responseJSONData = readBody(con.getErrorStream());
+		// System.out.println(">>>에러");
 		con.disconnect();
 		// System.out.println(responseJSONData);
 		ObjectMapper mapper = new ObjectMapper();

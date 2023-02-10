@@ -8,6 +8,7 @@ DATE=$(date +"[%Y-%m-%d %H:%M:%S]")
 WAR_FILE="CodeBox.war"
 
 #배포된 war파일을 tomcat_web_root 경로에 앞축해제
+sudo rm -rf $APP_BASE && mkdir -p $APP_BASE
 cp -f $DEPLOY_PATH/build/libs/$WAR_FILE $APP_BASE
 cd $APP_BASE || exit
 jar -xf $WAR_FILE
