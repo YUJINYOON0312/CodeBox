@@ -1,14 +1,23 @@
 # CodeBox
 
+## master에 병합하지마시고 test 브랜치에서 병합 진행해주세요
+
+## 사용법
+
+### h2database 접속방법
+
 1. localhost:8080/h2-console 주소 입력후 JDBC URL을 jdbc:h2:mem:test로 수정
 
-> 언어설정에서 한국어로 볼수있어요
-> ![alt](https://github.com/nowon-kdt/CodeBox/blob/7de9c506b7e5b7b8f38bde3a3f48498f2245eb4d/h2접속.png)
+   > 언어설정에서 한국어로 볼수있어요
+   > ![alt](https://github.com/nowon-kdt/CodeBox/blob/7de9c506b7e5b7b8f38bde3a3f48498f2245eb4d/h2접속.png)
 
 2. 확인하고 싶은 테이블 클릭후 Run버튼 누르면
    ![alt](https://github.com/nowon-kdt/CodeBox/blob/7de9c506b7e5b7b8f38bde3a3f48498f2245eb4d/h2접속2.png)
 
-## master에 병합하지마시고 test 브랜치에서 병합 진행해주세요
+### aop 적용방법
+
+1. 메서드 위에 @ParamVal 어노테이션 입력
+   ![alt](https://github.com/nowon-kdt/CodeBox/blob/5a155e1084af1ca75200062109fd7991bfd48cd4/aop적용법.png)
 
 ## css 색상
 
