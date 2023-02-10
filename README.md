@@ -13,7 +13,7 @@
 
 2. 확인하고 싶은 테이블 클릭후 Run버튼 누르면
    ![alt](https://github.com/nowon-kdt/CodeBox/blob/7de9c506b7e5b7b8f38bde3a3f48498f2245eb4d/h2접속2.png)
-   ![alt]()
+   ![alt](https://github.com/nowon-kdt/CodeBox/blob/5a155e1084af1ca75200062109fd7991bfd48cd4/aop적용법.png)
 
 ### aop 적용방법
 
