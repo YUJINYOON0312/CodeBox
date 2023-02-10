@@ -9,26 +9,31 @@ import lombok.Getter;
 
 @Getter
 public class BoardListDTO {
-	
+
 	private long bno;
+
 	private String title;
+
 	private int readCount;
+
 	private String writer;
+
 	private LocalDateTime updatedDate;
+
 	private LocalDate toDay;
+
 	private String writerId;
-	
-	//Entity를 -> BoardListDTO(BoardEntity ent)
+
+	// Entity를 -> BoardListDTO(BoardEntity ent)
 	public BoardListDTO(BoardEntity ent) {
-		
-		this.bno = ent.getBno();
-		this.title = ent.getTitle();
-		this.readCount = ent.getReadCount();
-		this.writer = ent.getMember().getName(); //member의 name이 작성자임
-		this.updatedDate = ent.getUpdatedDate();
-		toDay=LocalDate.now();
-		this.writerId =ent.getMember().getId();
+
+		bno = ent.getBno();
+		title = ent.getTitle();
+		readCount = ent.getReadCount();
+		writer = ent.getMember().getName(); // member의 name이 작성자임
+		updatedDate = ent.getUpdatedDate();
+		toDay = LocalDate.now();
+		writerId = ent.getMember().getId();
 	}
-	
 
 }

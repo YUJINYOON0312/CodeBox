@@ -25,7 +25,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Table(name = "ggApproval")
 @Builder
 @AllArgsConstructor
@@ -38,20 +37,22 @@ public class ApprovalEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long ano;
-	
+
 	private String title;
-	
+
 	private String content;
-	
+
 	private String status;
-	
+
 	private Date date;
+
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn
 	@ManyToOne
 	private MemberEntity mno;
-	
+
 	@OneToOne
 	@Cascade(CascadeType.PERSIST)
 	private AttendanceEntity adno;
+
 }

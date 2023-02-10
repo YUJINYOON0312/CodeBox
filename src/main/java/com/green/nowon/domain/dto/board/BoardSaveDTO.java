@@ -3,12 +3,10 @@ package com.green.nowon.domain.dto.board;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 import com.green.nowon.domain.entity.board.BoardEntity;
 import com.green.nowon.domain.entity.board.BoardImgEntity;
 import com.green.nowon.domain.entity.member.MemberEntity;
-import com.green.nowon.util.MybFileUtils;
+import com.green.nowon.util.MyFileUtils;
 
 import lombok.Data;
 import lombok.Getter;
@@ -18,20 +16,23 @@ import lombok.Setter;
 @Setter
 @Getter
 public class BoardSaveDTO {
-	
-	private String title; 
+
+	private String title;
+
 	private String content;
+
 	private long mno;
-	
+
 	private String[] newName;
+
 	private String[] orgName;
-	
+
 	public List<BoardImgEntity> toBoardListImgs(BoardEntity entity, String url) {
 		List<BoardImgEntity> imgs = new ArrayList<>();
 		for (int i = 0; i < orgName.length; i++) {
-			if(orgName[i].equals("") || orgName[i]==null)continue;
+			if ("".equals(orgName[i]) || orgName[i] == null) continue;
 			boolean def = false;
-			if(i==0)def=true;
+			if (i == 0) def = true;
 			BoardImgEntity bim = BoardImgEntity.builder()
 					.url(url)
 					.orgName(orgName[i])
@@ -41,18 +42,14 @@ public class BoardSaveDTO {
 					.build();
 			imgs.add(bim);
 		}
-		//temp 폴더 상위 폴더인 upload로 이동
-		MybFileUtils.moveUploadLocationFromTemp(newName, url);
+		// temp 폴더 상위 폴더인 upload로 이동
+		MyFileUtils.moveUploadLocationFromTemp(newName, url);
 		return imgs;
 	}
-	
-	//셋팅된 dto data를 Entity객체로 변환
+
+	// 셋팅된 dto data를 Entity객체로 변환
 	public BoardEntity toBoardEntity() {
-		return BoardEntity.builder()
-				.title(title).content(content).member(MemberEntity.builder().mno(mno).build())
-				.build();
+		return BoardEntity.builder().title(title).content(content).member(MemberEntity.builder().mno(mno).build()).build();
 	}
 
-
-	
 }

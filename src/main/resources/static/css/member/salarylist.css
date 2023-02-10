@@ -1,34 +1,33 @@
 @charset "UTF-8";
 
-h2{
-	color: #f6d256;
+h2 {
+  color: #f6d256;
 }
 
-.salary-list{
-	border: 3px solid #f6d256;
-	width: 200px;
-	height: auto;
-	text-align: center;
-	border-radius: 10%;
-	margin-right: 30px;
-	margin-top: 10px;
+.salary-list {
+  border: 3px solid #f6d256;
+  width: 200px;
+  height: auto;
+  text-align: center;
+  border-radius: 10%;
+  margin-right: 30px;
+  margin-top: 10px;
 }
-.salary-list img{
-	width: 150px;
-	height: 150px;
-	margin: 5px;
-	border-radius: 20%;
-	
+.salary-list img {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  border-radius: 20%;
 }
-.salary-list li{
-	text-align: center;
-	margin-bottom: 5px;
-	margin-top: 3px;
-	font-size: 13px;
-	color: #ffeba8;
+.salary-list li {
+  text-align: center;
+  margin-bottom: 5px;
+  margin-top: 3px;
+  font-size: 13px;
+  color: #ffeba8;
 }
-.emp-list{
-	width: 1050px;
-	height: auto;
-	flex-wrap: wrap;
+.emp-list {
+  width: 1050px;
+  height: auto;
+  flex-wrap: wrap;
 }

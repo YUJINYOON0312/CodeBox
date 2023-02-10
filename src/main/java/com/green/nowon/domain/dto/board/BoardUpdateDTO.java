@@ -15,21 +15,23 @@ import lombok.Setter;
 @Setter
 @Getter
 public class BoardUpdateDTO {
-	
+
 	private String title;
+
 	private String content;
-	
-	//이미지
+
+	// 이미지
 	private String[] newName;
+
 	private String[] orgName;
 
-	//메서드 만들어두고 서비스에서 실행할거임
+	// 메서드 만들어두고 서비스에서 실행할거임
 	public List<BoardImgEntity> toListImgs(BoardEntity entity, String url) {
 		List<BoardImgEntity> imgs = new ArrayList<>();
 		for (int i = 0; i < orgName.length; i++) {
-			if(orgName[i].equals("") || orgName[i]==null)continue;
+			if (orgName[i].equals("") || orgName[i] == null) continue;
 			boolean def = false;
-			if(i==0)def=true;
+			if (i == 0) def = true;
 			BoardImgEntity bim = BoardImgEntity.builder()
 					.url(url)
 					.orgName(orgName[i])
@@ -42,12 +44,9 @@ public class BoardUpdateDTO {
 		MyFileUtils.moveUploadLocationFromTemp(newName, url);
 		return imgs;
 	}
-	
+
 	public BoardEntity updateEntity() {
-		return BoardEntity.builder()
-				.title(title)
-				.content(content)
-			.build();
+		return BoardEntity.builder().title(title).content(content).build();
 	}
-	
+
 }

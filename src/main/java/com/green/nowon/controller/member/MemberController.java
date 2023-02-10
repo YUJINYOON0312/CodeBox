@@ -16,39 +16,32 @@ import com.green.nowon.service.MemberService;
 
 @Controller
 public class MemberController {
-	
+
 	@Autowired
 	private MemberService memberService;
-	
+
 	@ResponseBody
 	@PostMapping("/mypage/temp-upload")
 	public Map<String, String> memberDetailImg(MultipartFile img) {
 		return memberService.fileTempUpload(img);
 	}
-	
+
 	@GetMapping("/mypage/{mno}")
-	public String detail(@PathVariable long mno,Model model) {
-		System.err.println(">>>>>>>>>>>>>>>>" + mno);
-		memberService.detail(mno,model);
+	public String detail(@PathVariable long mno, Model model) {
+		memberService.detail(mno, model);
 		return "mypage/employee-detail";
 	}
-	
+
 	@PostMapping("/mypage/{mno}/update")
-	public String update(@PathVariable long mno,MemberUpdateDTO dto) {
-		System.err.println(">>>>>>>>>>>update : "+mno);
-		memberService.update(mno,dto);
+	public String update(@PathVariable long mno, MemberUpdateDTO dto) {
+		memberService.update(mno, dto);
 		return "redirect:/mypage/info/{mno}";
 	}
-	
-	//오시는길
+
+	// 오시는길
 	@GetMapping("/api/map")
 	public String map() {
 		return "api/map/map";
 	}
-	
-	
 
-	
-	
-	
 }

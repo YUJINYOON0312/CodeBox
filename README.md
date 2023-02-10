@@ -1,11 +1,24 @@
-# greengames
+# CodeBox
 
-GreemGames
-<br>
-팀장 - 박기태
-<br>
-팀원 - 이용주,이정현,윤유진,류지은,정도현
-<br>
-팀원들 끼리 병합 or master => 본인 or 본인 <= master로 병합하기전,
-<br>
-test브런치를 사용해서 문제가 발생하는지 확인 후 병합해 주시면 좋을거 같습니다.
+1. localhost:8080/h2-console 주소 입력후 JDBC URL을 jdbc:h2:mem:test로 수정
+
+> 언어설정에서 한국어로 볼수있어요
+> ![alt](https://github.com/nowon-kdt/CodeBox/blob/7de9c506b7e5b7b8f38bde3a3f48498f2245eb4d/h2접속.png)
+
+2. 확인하고 싶은 테이블 클릭후 Run버튼 누르면
+   ![alt](https://github.com/nowon-kdt/CodeBox/blob/7de9c506b7e5b7b8f38bde3a3f48498f2245eb4d/h2접속2.png)
+
+## master에 병합하지마시고 test 브랜치에서 병합 진행해주세요
+
+## css 색상
+
+- #5587a2 하늘
+- #f6d256 노랑
+- #ffeba8 연노랑
+- #4f6675 진파랑
+- #2d4554 더 진파랑
+
+### 일정
+
+1. 2/12(일) 까지 본인이 맡은 부분 디자인 & 기능구현 끝내기 (기능 진도 안나간 부분은 디자인 먼저 완료 해주세요)
+2. 2/14 - 2/15 (화 - 수) ppt 및 발표준비

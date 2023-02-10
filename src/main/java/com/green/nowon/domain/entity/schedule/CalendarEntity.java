@@ -30,46 +30,40 @@ import lombok.NoArgsConstructor;
 @DynamicUpdate
 @AllArgsConstructor
 @NoArgsConstructor
-@SequenceGenerator(name = "gg_gen_calendar_seq",
-sequenceName = "gg_calendar_seq", initialValue = 1, allocationSize = 1)
-@Table(name="ggCalendar")
+@SequenceGenerator(name = "gg_gen_calendar_seq", sequenceName = "gg_calendar_seq", initialValue = 1, allocationSize = 1)
+@Table(name = "ggCalendar")
 @Entity
 public class CalendarEntity {
-	
+
 	@Id
 	@GeneratedValue(generator = "gg_gen_calendar_seq", strategy = GenerationType.SEQUENCE)
 	private long cno;
-	
+
 	@Column(nullable = false)
 	private String cTitle;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(nullable = false)
 	private Date cStartTime;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(nullable = false)
 	private Date cEndTime;
-	
+
 	@Column(nullable = false)
 	private String color;
-	
+
 	@JoinColumn(name = "mno")
 	@ManyToOne(cascade = CascadeType.DETACH)
 	private MemberEntity member;
-	
-	public CalendarEntity save(CalendarDTO dto){
-		this.cTitle =  dto.getCTitle();
-		this.cStartTime = dto.getCStartTime();
-		this.cEndTime = dto.getCEndTime();
+
+	public CalendarEntity save(CalendarDTO dto) {
+		cTitle = dto.getCTitle();
+		cStartTime = dto.getCStartTime();
+		cEndTime = dto.getCEndTime();
 		return this;
 	}
-	
-	
-	
-	
+
 }
-
-

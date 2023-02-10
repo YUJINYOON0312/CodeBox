@@ -8,14 +8,15 @@ import lombok.Data;
 public class AttendanceSaveDTO {
 
 	private String adtype;
-	
+
 	private Date date;
-	
+
 	private Date sdate;
-	
+
 	private Date edate;
 
 	private String content;
 
 	private long mno;
+
 }

@@ -44,10 +44,8 @@ public class CalendarController {
 	@ResponseBody
 	@PostMapping("/schedule/calendar/{userMno}")
 	public long calendarInsert(@PathVariable long userMno, @RequestBody CalendarDTO dto, Model model) {
-		System.out.println(dto);
 		long cno = cService.save(userMno, dto);
 		model.addAttribute("cno", cno);
-		System.out.println("cno : " + cno);
 		return cno;
 	}
 
@@ -55,7 +53,7 @@ public class CalendarController {
 	@ResponseBody
 	@DeleteMapping("/schedule/calendar/{userMno}")
 	public String delete(@PathVariable long userMno, @RequestBody List<Map<String, Object>> param) {
-		long cno = Integer.parseInt((String.valueOf(param.get(0).get("cno"))));
+		long cno = Integer.parseInt(String.valueOf(param.get(0).get("cno")));
 		cService.delete(cno);
 		return "redirect:/schedule/calendar";
 	}
@@ -64,7 +62,6 @@ public class CalendarController {
 	@ResponseBody
 	@PutMapping("/schedule/calendar/{userMno}")
 	public String update(@PathVariable long userMno, @RequestBody CalendarDTO dto) {
-		System.out.println(dto);
 		long cno = dto.getCno();
 		cService.update(userMno, cno, dto);
 		return "/schedule/calendar";
@@ -72,7 +69,7 @@ public class CalendarController {
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////회사일정///////////////////////////////////////////////////
+	////////////////////////////////////////// 회사일정///////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -80,33 +77,32 @@ public class CalendarController {
 	@GetMapping("/schedule/companyCalenda")
 	public String calendar2(Model model) {
 		return "/schedule/companyCalendar";
-		
+
 	}
-	
+
 	// 캘린더 select
 	@ResponseBody
 	@GetMapping("/schedule/companyCalenda/list")
 	public List<CalendarDTO2> calendarSelect2() {
 		return cService.getList2();
 	}
-	
+
 	// 캘린더 insert
 	@ResponseBody
 	@PostMapping("/schedule/companyCalenda/list")
 	public long calendarInsert(@RequestBody CalendarDTO2 dto, Model model) {
 		long cno2 = cService.save(dto);
 		model.addAttribute("cno2", cno2);
-		System.out.println("cno2 : " + cno2);
 		return cno2;
 	}
-	
+
 	// 캘린더 Delete
-		@ResponseBody
-		@DeleteMapping("/schedule/companyCalenda/list")
-		public String delete(@RequestBody List<Map<String, Object>> param) {
-			System.out.println("컨트"+param);
-//			long cno2 = Integer.parseInt((String.valueOf(param.get(0).get("cno2"))));
-//			cService.delete2(cno2);
-			return "redirect:/schedule/companyCalenda";
-		}
+	@ResponseBody
+	@DeleteMapping("/schedule/companyCalenda/list")
+	public String delete(@RequestBody List<Map<String, Object>> param) {
+		// long cno2 = Integer.parseInt((String.valueOf(param.get(0).get("cno2"))));
+		// cService.delete2(cno2);
+		return "redirect:/schedule/companyCalenda";
+	}
+
 }

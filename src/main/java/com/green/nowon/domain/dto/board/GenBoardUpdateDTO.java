@@ -6,8 +6,9 @@ import lombok.Setter;
 @Setter
 @Getter
 public class GenBoardUpdateDTO {
-	
+
 	private String title;
+
 	private String content;
 
 }
