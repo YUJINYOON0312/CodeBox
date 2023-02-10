@@ -17,7 +17,7 @@ import lombok.extern.log4j.Log4j2;
  * @link ParamVal
  * @author 0a23523375354
  */
-@Log4j2 @Aspect @Component public class ParamValueAOP {@Around("execution(* *com.green.nowon.*.*Controller.*(..)) || paramV() || execution(* *com.green.nowon.*.*Service.*(..))")
+@Log4j2 @Aspect @Component public class ParamValueAOP {@Around(" paramV() ")
 public Object aop(final ProceedingJoinPoint joinPoint) throws Throwable {final var stopWatch = new StopWatch();stopWatch.start();
   final var sb = new StringBuilder("\n\n     --------------------------------------------------------------\n");
   Arrays.asList(joinPoint.getArgs()).forEach(arg -> {
