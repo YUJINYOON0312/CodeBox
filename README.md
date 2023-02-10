@@ -1,6 +1,12 @@
 # CodeBox
 
-![alt](https://)
+1. localhost:8080/h2-console 주소 입력후 JDBC URL을 jdbc:h2:mem:test로 수정
+
+> 언어설정에서 한국어로 볼수있어요
+> ![alt](https://github.com/nowon-kdt/CodeBox/blob/7de9c506b7e5b7b8f38bde3a3f48498f2245eb4d/h2접속.png)
+
+2. 확인하고 싶은 테이블 클릭후 Run버튼 누르면
+   ![alt](https://github.com/nowon-kdt/CodeBox/blob/7de9c506b7e5b7b8f38bde3a3f48498f2245eb4d/h2접속2.png)
 
 ## master에 병합하지마시고 test 브랜치에서 병합 진행해주세요
 
