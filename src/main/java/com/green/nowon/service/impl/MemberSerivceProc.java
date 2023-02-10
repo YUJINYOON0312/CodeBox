@@ -58,13 +58,9 @@ public class MemberSerivceProc implements MemberService {
 		);// 멤버 저장
 		final String id = mdto.getId();
 		addressRepo.save(adto.signin().member(memberRepo.findById(id).orElseThrow()));// 주소저장
-		// System.err.println(">>>>>>>>>>>>>111111111111111111" + mdto.getId());
-
 		final long mno = memberRepo.findById(id).orElseThrow().getMno();// 사번
-		// System.err.println(">>>>>>>>>>>>>2222222222222222"+mno);
-
 		dmRepo.save(DepartmentMemberEntity.builder() // 기본 부서등록
-				.department(DepartmentEntity.builder().dno(0).build())
+				.department(DepartmentEntity.builder().dno(1).build())
 				.member(MemberEntity.builder().mno(mno).build())
 				.build());
 
