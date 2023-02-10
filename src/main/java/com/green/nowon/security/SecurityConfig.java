@@ -18,6 +18,8 @@ public class SecurityConfig {
 	SecurityFilterChain securityFilterChain(final HttpSecurity http) throws Exception {
 		http.authorizeRequests(authorize -> authorize.antMatchers("/css/**", "/images/**", "/js/**")
 				.permitAll()
+				.antMatchers("/h2-console")
+				.permitAll()
 				.antMatchers("/log/signup")
 				.permitAll()
 				.antMatchers("/**", "/naver/**")
@@ -46,7 +48,10 @@ public class SecurityConfig {
 						.defaultSuccessUrl("/admin") // 로그인 성공 후 인덱스페이지로 이동
 
 						.permitAll())
-				.csrf(CsrfConfigurer::disable);
+				.csrf(CsrfConfigurer::disable)
+				.headers()
+				.frameOptions()
+				.disable();
 		return http.build();
 	}
 

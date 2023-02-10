@@ -64,7 +64,7 @@ public class MemberSerivceProc implements MemberService {
 		// System.err.println(">>>>>>>>>>>>>2222222222222222"+mno);
 
 		dmRepo.save(DepartmentMemberEntity.builder() // 기본 부서등록
-				.department(DepartmentEntity.builder().dno(11).build())
+				.department(DepartmentEntity.builder().dno(0).build())
 				.member(MemberEntity.builder().mno(mno).build())
 				.build());
 
