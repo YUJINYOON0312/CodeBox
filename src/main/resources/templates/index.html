@@ -5,6 +5,32 @@
     <title>로그인</title>
     <link rel="stylesheet" href="/css/member/login.css" />
     <link rel="stylesheet" href="/css/member/loginplus.css" />
+    <style type="text/css">
+      .text {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-family: "Roboto", Arial, sans-serif;
+        font-size: calc(10px + 5.5vw);
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: #4f6675;
+        mix-blend-mode: multiply;
+        opacity: 0;
+        animation: fadeInText 2s 1s ease-out forwards;
+      }
+      @keyframes fadeInText {
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="wrap view-size-m">
@@ -15,8 +41,12 @@
               <img src="image/logo/logo.png" alt="logo" />
             </a>
           </div>
+          <div class="text">GLOBAL MOVIE NO.1</div>
+          <div style="color: gray; font-size: 14px; text-align: center; margin: 50px 0; opacity: 0; animation: fadeInText 2s 1s ease-out forwards">
+            영화 기획, 투자, 배급 등 전문분야를 아우르며 한국 영화산업을 이끄는 기업, 코드박스입니다.
+          </div>
           <div>
-            <a href="/login"><button>로그인</button></a>
+            <a href="/login"><button class="fir-button">그룹웨어 접속하기</button></a>
           </div>
         </div>
       </section>
