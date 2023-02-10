@@ -21,17 +21,17 @@ import com.green.nowon.security.MyRole;
 @SpringBootApplication
 public class CodeBoxApplication {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		SpringApplication.run(CodeBoxApplication.class, args);
 	}
 
 	@Bean
-	ApplicationRunner applicationRunner(MemberEntityRepository repo, PasswordEncoder pe,
-			AddressEntityRepository addressrepo, DepartmentMemberEntityRepository dmRepo,
-			DepartmentEntityRepository departmentRepo) {
+	ApplicationRunner applicationRunner(final MemberEntityRepository repo, final PasswordEncoder pe,
+			final AddressEntityRepository addressrepo, final DepartmentMemberEntityRepository dmRepo,
+			final DepartmentEntityRepository departmentRepo) {
 		return args -> {
 			if (repo.findById("admin2").isPresent()) return;
-			var a = repo.save(MemberEntity.builder()
+			final var a = repo.save(MemberEntity.builder()
 					.name("관리자")
 					.id("admin2")
 					.email("admin2@greengames.shop")
@@ -48,7 +48,7 @@ public class CodeBoxApplication {
 					.extraAddress("(공릉동)")
 					.member(a)
 					.build());
-			var d = departmentRepo.save(DepartmentEntity.builder().dname("코드박스").depth(1).parent(null).build());
+			final var d = departmentRepo.save(DepartmentEntity.builder().dname("코드박스").depth(1).parent(null).build());
 			dmRepo.save(DepartmentMemberEntity.builder().department(d).member(a).build());
 		};
 	}
