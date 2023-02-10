@@ -61,8 +61,7 @@ public class MemberSerivceProc implements MemberService {
 		final long mno = memberRepo.findById(id).orElseThrow().getMno();// 사번
 		dmRepo.save(DepartmentMemberEntity.builder() // 기본 부서등록
 				.department(DepartmentEntity.builder().dno(1).build())
-				.member(MemberEntity.builder().mno(mno).build())
-				.build());
+				.member(MemberEntity.builder().mno(mno).build()).build());
 
 	}
 
