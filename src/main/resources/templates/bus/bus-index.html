@@ -1,49 +1,154 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Insert title here</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script>
-      /*/
-    $(function(){
-    	$("form").submit(function(){ //모든 from태그 무효화,  a href 무효화
-        event.preventDefault();
-      });
-    });
-    */
-      function searchBusInfo(event) {
-        event.preventDefault(); //form action 실행 안함.
-        var strSrch = $("#strSrch").val().trim();
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/commons/common.css}">
+<style>
+	#bus-station .info li{
+		font-size: 8px;
+		width: 150px;
+	}
+	
+	#list-display{
+		width: 100%;
+		height: 100vh;
+	}
+	
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	022e1af6535b7180359a6f22f16fb181&libraries=services,clusterer,drawing"></script>
+<script>
+var map;
+$(function(){
+	$("form").submit(function(){event.preventDefault();});
+	var mapContainer = document.getElementById('list-display'), // 지도를 표시할 div 
+	mapOption = {
+	    center: new kakao.maps.LatLng(37.6572060679004, 127.062335636997), // 지도의 중심좌표
+	    level: 3 // 지도의 확대 레벨
+	};  
+	
+	// 지도를 생성합니다    
+	map = new kakao.maps.Map(mapContainer, mapOption); 
+	
+	// 주소-좌표 변환 객체를 생성합니다
+	var geocoder = new kakao.maps.services.Geocoder();
+	
+	// 주소로 좌표를 검색합니다
+	geocoder.addressSearch('서울특별시 노원구 상계동 593-1', function(result, status) {
+	
+	    // 정상적으로 검색이 완료됐으면 
+	     if (status === kakao.maps.services.Status.OK) {
+	
+	        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+	        //console.log(result[0].y);
+	        //console.log(result[0].x)
+			//console.log(coords);
+	        // 결과값으로 받은 위치를 마커로 표시합니다
+	        var marker = new kakao.maps.Marker({
+	            map: map,
+	            position: coords
+	        });
+	
+	        // 인포윈도우로 장소에 대한 설명을 표시합니다
+	        var infowindow = new kakao.maps.InfoWindow({
+	            content: '<div style="width:150px;text-align:center;padding:6px 0;">노원그린컴퓨터</div>'
+	        });
+	        infowindow.open(map, marker);
+	
+	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+	        map.setCenter(coords);
+	    } 
+	});
+});	
 
-        $.ajax({
-          url: "/bus/search",
-          //{name:value} --> name은 변수가 아님
-          data: { strSrch: strSrch },
-          success: function (result) {
-            $("#list-display").html(result);
-          },
-        });
-      }
-    </script>
-  </head>
-  <body>
-    <p>버스api</p>
-    <form onsubmit="searchBusInfo(event)">
-      <label>버스번호 입력</label>
-      <input type="text" id="strSrch" />
-      <select id="routeType">
-        <option value="1">공항버스</option>
-        <option value="2">마을버스(초록)</option>
-        <option value="3">간선버스(파랑)</option>
-        <option value="4">지선버스(초록)</option>
-        <option value="5">순환버스</option>
-        <option value="6">광역버스</option>
-        <option value="7">인천버스</option>
-        <option value="8`">경기버스</option>
-      </select>
-      <button>검색</button>
-    </form>
-    <div id="list-display"></div>
-  </body>
+
+////////////////////////////////////////////
+	function searchBusInfo(enent){
+		event.preventDefault();
+		var strSrch= $("#strSrch").val().trim();
+		
+		$.ajax({
+			url:"/bus/search",
+			//{name:value} -->name은 변수가 아님
+			data:{strSrch:strSrch},
+			success:function(result){
+				$("#list-display").html(result);
+			}
+		});
+	}
+	
+	function getStaionsByRouteList(el){
+		var busRouteId=$(el).siblings(".busRouteId").val();
+		$.ajax({
+			url:`/bus/${busRouteId}`,
+			success:function(result){
+				$("#list-display").html(result);
+			}
+		});
+	}
+	
+	function aaa(event){
+		var search= $("#placesSearch").val().trim();
+		var ps = new kakao.maps.services.Places(); 
+		// 키워드로 장소를 검색합니다
+		ps.keywordSearch(search, placesSearchCB); 
+	}
+	
+	// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+	function placesSearchCB (data, status, pagination) {
+		console.log(data);
+	    if (status === kakao.maps.services.Status.OK) {
+	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+	        // LatLngBounds 객체에 좌표를 추가합니다
+	        var bounds = new kakao.maps.LatLngBounds();
+	        for (var i=0; i<data.length; i++) {
+	            displayMarker(data[i]);    
+	            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+	        }       
+	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+	        map.setBounds(bounds);
+	    } 
+	}
+	// 지도에 마커를 표시하는 함수입니다
+	function displayMarker(place) {
+	    
+	    // 마커를 생성하고 지도에 표시합니다
+	    var marker = new kakao.maps.Marker({
+	        map: map,
+	        position: new kakao.maps.LatLng(place.y, place.x) 
+	    });
+	
+	    // 마커에 클릭이벤트를 등록합니다
+	    kakao.maps.event.addListener(marker, 'click', function() {
+	        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+	        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+	        infowindow.open(map, marker);
+	    });
+	}
+	
+</script>
+</head>
+<body>
+	<!--1. 버스번호검색 : 버스라우트id 획득과정-->
+	<!--2. 버스라우트id : 버스 정류장정보 획득-->
+	<!--3. 각각 정류장 위도 경도 정보를 배열로 저장-->
+	<!--4. 저장된 정류장배열을 kakao map 반영 정류장 위치를 마커로 표기 -->
+	<p>버스api</p>
+	<form  onsubmit="searchBusInfo(event)">
+		<label>버스번호 입력</label>
+		<input type="text" id="strSrch">
+		<button>검색</button>
+	</form>
+	<!--
+	<form  onsubmit="aaa(event)">
+		<label>버스번호 입력</label>
+		<input type="text" id="placesSearch">
+		
+		<button>검색</button>
+	</form>
+	-->
+	<div id="list-display" class="flex">
+	</div>
+</body>
 </html>

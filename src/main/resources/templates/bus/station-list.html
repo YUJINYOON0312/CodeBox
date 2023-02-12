@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<section id="bus-station" style="width: 200px;">
+	<div class="wrap">	
+		<div>
+			<p>[[${list.get(0).busRouteNm}]]</p>
+		</div>	
+		<ul style="height: 100vh;overflow: auto;">
+			<th:block th:each="dto:${list}">
+			<li class="info">
+				<ol class="flex">
+					<li class="coord" >
+						<input type="hidden" th:value="${dto.gpsX}" class="lng">
+						<input type="hidden" th:value="${dto.gpsY}" class="lat">
+						<form class="station-form" onsubmit="arriveInfo(this,event)">
+							<!--정류소ID-->
+							<input type="hidden" name="stId" th:value="${dto.station}" >
+							<!--노선ID-->
+							<input type="hidden" name="busRouteId" th:value="${dto.busRouteId}" >
+							<!--정류소순번-->
+							<input type="hidden" name="ord" th:value="${dto.seq}" >
+							<button class="stationNm">[[${dto.stationNm}]]</button>
+						</form>
+					</li>
+					
+				</ol>
+			</li>
+			</th:block>
+		</ul>
+	</div>	
+</section>
+<section id="mymap" style="width: 100%;">
+	<h1>지도</h1>
+	<div class="wrap" id="map" style="width:100%;height:100vh;"></div>
+</section>
+
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.5663174209601, 126.977829174031), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+
+/*
+// 주소로 좌표를 검색합니다
+geocoder.addressSearch('서울 중구 세종대로 110', function(result, status) {
+
+    // 정상적으로 검색이 완료됐으면 
+     if (status === kakao.maps.services.Status.OK) {
+
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+		console.log(coords);
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: coords
+        });
+
+        // 인포윈도우로 장소에 대한 설명을 표시합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            //content: '<div style="width:150px;text-align:center;padding:6px 0;">서울시청</div>'
+        });
+        //infowindow.open(map, marker);
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+});  
+*/  
+$(function(){
+	var positions=[];
+	// jQuery 일반 메서드
+	$(".coord").each(function(index, item){
+		var lat=$(item).find(".lat").val();
+		var lng=$(item).find(".lng").val();
+		var result=
+		{
+				title: $(item).find(".stationNm").text(),
+				latlng: new kakao.maps.LatLng(parseFloat(lat) , parseFloat(lng))
+		};
+		//console.log("좌표 "+index+":" +JSON.stringify(result));
+		positions.push(result);
+	})
+	//console.log(JSON.stringify(positions));
+	
+
+
+	// 마커 이미지의 이미지 주소입니다
+	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+	    
+	for (var i = 0; i < positions.length; i ++) {
+	    
+	    // 마커 이미지의 이미지 크기 입니다
+	    var imageSize = new kakao.maps.Size(24, 35); 
+	    
+	    // 마커 이미지를 생성합니다    
+	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+	    
+	    // 마커를 생성합니다
+	    var marker = new kakao.maps.Marker({
+	        map: map, // 마커를 표시할 지도
+	        position: positions[i].latlng, // 마커를 표시할 위치
+	        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+	        image : markerImage // 마커 이미지 
+	    });
+	}//for
+	
+	map.setCenter(positions[positions.length/4].latlng);//기점 을 중심좌표
+	
+	
+});
+
+function arriveInfo(el,event){
+	event.preventDefault();
+	//alert($(el).serialize());
+	$.ajax({
+		url:"/bus/arriveInfo",
+		data: $(el).serialize(),
+		success: function(result){
+			console.log(result);
+			alert(result[0].arrmsg1 + " "+ result[0].arrmsg2);
+		}
+	});
+	
+}
+</script>
+</html>
