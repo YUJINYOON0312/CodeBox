@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
+<th:block th:insert="~{admin/AdminLayout :: head}" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" th:href="@{/css/commons/common.css}">
@@ -129,7 +130,8 @@ $(function(){
 	
 </script>
 </head>
-<body>
+<body class="flex">
+	<th:block th:insert="~{admin/AdminLayout :: header}" />
 	<!--1. 버스번호검색 : 버스라우트id 획득과정-->
 	<!--2. 버스라우트id : 버스 정류장정보 획득-->
 	<!--3. 각각 정류장 위도 경도 정보를 배열로 저장-->
@@ -140,14 +142,12 @@ $(function(){
 		<input type="text" id="strSrch">
 		<button>검색</button>
 	</form>
-	<!--
 	<form  onsubmit="aaa(event)">
 		<label>버스번호 입력</label>
 		<input type="text" id="placesSearch">
 		
 		<button>검색</button>
 	</form>
-	-->
 	<div id="list-display" class="flex">
 	</div>
 </body>
