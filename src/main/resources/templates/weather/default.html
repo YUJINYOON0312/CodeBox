@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/js/mapConvert.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e96102b0b56c9f7c31782c0d884bbb66&libraries=services"></script>
+
+<script type="text/javascript">
+	//position을 입력 받아 위도 경도 좌표얻기 : 카카오api
+	function weatherInfo(event){
+		event.preventDefault(); //refresh 방지
+		
+		//console.log($("#position").val().trim())
+		var position=$("#position").val().trim();
+		var t_date=$("#t-date").val().trim();
+		var t_time=$("#t-time").val().trim();
+		
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+
+		// 주소로 좌표를 검색합니다
+		geocoder.addressSearch(position , function(result, status) {
+
+		    // 정상적으로 검색이 완료됐으면 위경도 -> 좌표
+		     if (status === kakao.maps.services.Status.OK) {
+		    	 console.log("y>>"+result[0].y); //위도
+		    	 console.log("x>>"+result[0].x); //경도
+		    	 
+		        var rs = dfs_xy_conv("toXY",result[0].y, result[0].x);
+
+		        console.log(rs.x); //좌표
+		        console.log(rs.y); //좌표
+		        
+		        $.ajax({
+		        	url:"/weather/info",
+		        	data:{
+		        		nx: rs.x,
+		        		ny: rs.y,
+		        		baseDate: t_date,
+		        		baseTime: t_time
+		        	},
+		        	success:function(result){
+		        		$("#disp").html(result);
+		        	}
+		        });
+		    } 
+		}); 
+	}
+	
+</script>
+</head>
+<body>
+	<p>날씨정보</p>
+	<form onsubmit="weatherInfo(event)">
+		<input type="search" placeholder="지역입력" id="position">
+		<input type="text" placeholder="날짜 예(20230213)" id="t-date">
+		<input type="text" placeholder="시간 예(0500)" id="t-time">
+		<button >검색</button>
+	</form>
+	<div id="disp">
+	</div>
+</body>
+</html>
