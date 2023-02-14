@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+.title {
+	font-size: 0px;
+}
+
+.input {
+	font-size: 50px;
+	color: #f6d256;
+	position: relative;
+	top: 100px;
+	left: 754px;
+}
+
+.route {
+	font-weight: 600;
+	color: #f6d256;
+}
+
+#strSrch {
+	position: relative;
+	left: 375px;
+	top: 163px;
+	
+}
+
+input[type=text] {
+	width: 272px;
+	height: 35px;
+	font-size: 20px;
+	border: 3px solid #f6d256;
+	text-align: center;
+	background-color: #2d4554;
+	color: white;
+}
+
+#routeType{
+	position: relative;
+	left: 420px;
+	top: 163px;
+	height: 35px;
+	text-align: center;
+	border: 3px solid #f6d256;
+	background-color: #2d4554;
+	font-size: 20px;
+	color: white;
+}
+
+.search {
+    border: 3px solid #f6d256;
+    position: relative;
+    top: 162px;
+    height: 35px;
+    left: 208px;
+    background-color: #2d4554;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 14px;
+    color: white;
+}
