@@ -93,10 +93,7 @@ public class MyPageServiceProcess implements MyPageService {
 
 		model.addAttribute("detail", mRepo.findById(mno).map(SalaryListDTO::new).orElseThrow());
 
-		final List<DepartmentDTO> result = dRepo.findAllByDepth(3)
-				.stream()
-				.map(DepartmentDTO::new)
-				.collect(Collectors.toList());
+		final List<DepartmentDTO> result = dRepo.findAllByDepth(3).stream().map(DepartmentDTO::new).collect(Collectors.toList());
 		model.addAttribute("department", result);
 
 		final List<PositionDTO> aaa = pRepo.findAll().stream().map(PositionDTO::new).collect(Collectors.toList());

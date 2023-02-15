@@ -130,7 +130,7 @@ class CodeBoxApplicationTests2 {
 
 	@Test
 	void 유저_어드민_등록() {
-		IntStream.range(0, 100).forEach(t -> {
+		IntStream.range(0, 10).forEach(t -> {
 			final var r = random;
 			final var deptName = "코드박스";
 			if (!mer.findById(r).isPresent()) {
@@ -140,8 +140,7 @@ class CodeBoxApplicationTests2 {
 						.name(krName())
 						.phone(krPhoneNum())
 						.hireDate(
-								LocalDate.of((int) (Math.random() * 15) + 2007, (int) (Math.random() * 11) + 1,
-										(int) (Math.random() * 27) + 1))
+								LocalDate.of((int) (Math.random() * 15) + 2007, (int) (Math.random() * 11) + 1, (int) (Math.random() * 27) + 1))
 						.pass(pe.encode("1234"))
 						.build()
 						.addRole(t % 2 == 0 ? MyRole.ADMIN : MyRole.USER));
@@ -156,8 +155,7 @@ class CodeBoxApplicationTests2 {
 				final var dept = der.findByParentDnoNullAndDname(deptName).isPresent() ? der.findById(1L).orElseThrow()
 						: der.save(DepartmentEntity.builder().dname(deptName).depth(1).parent(null).build());
 				dmer.save(DepartmentMemberEntity.builder().department(dept).member(member).build());
-				ber.save(BoardEntity.builder().title(random).content(random).member(member)
-						.build());
+				ber.save(BoardEntity.builder().title(random).content(random).member(member).build());
 			}
 			System.out.println("중복아이디");
 		});

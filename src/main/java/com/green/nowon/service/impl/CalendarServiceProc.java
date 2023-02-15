@@ -78,9 +78,7 @@ public class CalendarServiceProc implements CalendarService {
 
 	// 캘린더 select
 	@Override
-	public List<CalendarDTO2> getList2() {
-		return crepo2.findAll().stream().map(CalendarDTO2::new).collect(Collectors.toList());
-	}
+	public List<CalendarDTO2> getList2() { return crepo2.findAll().stream().map(CalendarDTO2::new).collect(Collectors.toList()); }
 
 	// 캘린더 insert
 	@Override

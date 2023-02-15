@@ -107,8 +107,8 @@ public class BoardController {
 	}
 
 	// 댓글 리스트 @GetMapping("/notice-boards/{bno}") 증복오류
-	/* @GetMapping("/notice-boards/{bno}") public String replyList(@PathVariable long bno, Model model) {
-	 * serv.findAll(model); return "redirect:/notice-boards/{bno}"; } */
+	/* @GetMapping("/notice-boards/{bno}") public String replyList(@PathVariable long bno, Model model) { serv.findAll(model);
+	 * return "redirect:/notice-boards/{bno}"; } */
 
 	/* 여기서부터 자유게시판 */
 
@@ -119,8 +119,8 @@ public class BoardController {
 	}
 
 	/* 검색기능 ajax 활용 방법
-	 * @GetMapping("/boards/search") public String genSearch(String keyword, Model model, int page) {
-	 * service.search02(keyword, model, page); return "board/generalSearchPage"; } */
+	 * @GetMapping("/boards/search") public String genSearch(String keyword, Model model, int page) { service.search02(keyword,
+	 * model, page); return "board/generalSearchPage"; } */
 
 	// 검색
 	@GetMapping("/boards/search")

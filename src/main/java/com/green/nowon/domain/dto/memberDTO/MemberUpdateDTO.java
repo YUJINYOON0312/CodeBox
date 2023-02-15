@@ -26,12 +26,7 @@ public class MemberUpdateDTO {
 			if (orgName[i].equals("") || orgName[i] == null) continue;
 			boolean def = false;
 			if (i == 0) def = true;
-			ProfileEntity profile = ProfileEntity.builder()
-					.url(url)
-					.orgName(orgName[i])
-					.newName(newName[i])
-					.member(entity)
-					.build();
+			ProfileEntity profile = ProfileEntity.builder().url(url).orgName(orgName[i]).newName(newName[i]).member(entity).build();
 			imgs.add(profile);
 		}
 		MyFileUtils.moveUploadLocationFromTemp(newName, url);

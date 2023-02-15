@@ -17,8 +17,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * @author LeeYongJu 주소 관련 entity DB 이름 : GgAddress 컬럼 목록 : ano(주소번호) ,postcode(우편번호),
- *         roadAddress(도로명),jibunAddress(지번), detailAddress(상세주소),extraAddress(추가주소),mno(직원번호),base(기본주소)
+ * @author LeeYongJu 주소 관련 entity DB 이름 : GgAddress 컬럼 목록 : ano(주소번호) ,postcode(우편번호), roadAddress(도로명),jibunAddress(지번),
+ *         detailAddress(상세주소),extraAddress(추가주소),mno(직원번호),base(기본주소)
  */
 
 @Builder

@@ -6,5 +6,7 @@ import lombok.Data;
 public class Response {
 
 	private Header header;
+
 	private Body body;
+
 }

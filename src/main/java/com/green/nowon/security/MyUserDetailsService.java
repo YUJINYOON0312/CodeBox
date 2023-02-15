@@ -35,8 +35,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
 		DepartmentMemberEntity aa = aaa.get(aaa.size() - 1);
 
-		return new MyUserDetails(repo.findById(username).orElseThrow(() -> new UsernameNotFoundException("존재하지 않는 이메일")),
-				aa);
+		return new MyUserDetails(repo.findById(username).orElseThrow(() -> new UsernameNotFoundException("존재하지 않는 이메일")), aa);
 	}
 
 }

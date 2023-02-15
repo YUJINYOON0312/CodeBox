@@ -42,12 +42,10 @@ public class DepartmentServiceProc implements DepartmentService {
 				.orElseGet(() -> departmentRepo.save(DepartmentEntity.builder().dname(names[0]).depth(1).parent(null).build()));
 
 		DepartmentEntity cate2 = departmentRepo.findByParentDnoAndDname(cate1.getDno(), names[1])
-				.orElseGet(
-						() -> departmentRepo.save(DepartmentEntity.builder().dname(names[1]).depth(2).parent(cate1).build()));
+				.orElseGet(() -> departmentRepo.save(DepartmentEntity.builder().dname(names[1]).depth(2).parent(cate1).build()));
 
 		DepartmentEntity cate3 = departmentRepo.findByParentDnoAndDname(cate2.getDno(), names[2])
-				.orElseGet(
-						() -> departmentRepo.save(DepartmentEntity.builder().dname(names[2]).depth(3).parent(cate2).build()));
+				.orElseGet(() -> departmentRepo.save(DepartmentEntity.builder().dname(names[2]).depth(3).parent(cate2).build()));
 	}
 
 	/**

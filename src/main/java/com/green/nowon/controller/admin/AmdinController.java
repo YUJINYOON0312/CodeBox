@@ -23,8 +23,7 @@ public class AmdinController {
 	private PositionService service;
 
 	@GetMapping("/admin")
-	public String admin(Principal principal, Model model, CommuteInsertDTO idto,
-			@RequestParam(defaultValue = "1") int page) {
+	public String admin(Principal principal, Model model, CommuteInsertDTO idto, @RequestParam(defaultValue = "1") int page) {
 		commuteService.showListTime(commuteService.MemberMno(principal), model, page);
 		return "admin/ggAdmin";
 	}

@@ -285,8 +285,7 @@ public class BoardServiceProc implements BoardService {
 	@Override
 	public void search02(String keyword, Model model, int page) {
 		/* 검색만 할 때 List<GenBoardListDTO> searchResult= repo.findByTitleContaining(keyword)
-		 * .stream().map(GenBoardListDTO::new).collect(Collectors.toList()); model.addAttribute("searchResult",
-		 * searchResult); */
+		 * .stream().map(GenBoardListDTO::new).collect(Collectors.toList()); model.addAttribute("searchResult", searchResult); */
 
 		int size = 5;
 		Sort sort = Sort.by(Direction.DESC, "bno");
