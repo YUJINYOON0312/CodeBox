@@ -21,25 +21,25 @@
   </head>
   <body class="flex">
     <th:block th:insert="~{admin/AdminLayout :: header}" />
-    <main>
+    <main style="background-color: #2d4554">
       <h1>메인컨텐츠</h1>
       <div class="wrap">
         <p class="pagetitle">게시물 작성</p>
         <form class="form" method="post" action="/boards">
           <table class="all">
             <tr>
-              <td>제목</td>
+              <td class="form-tit tit-tit">제목</td>
               <td><input type="text" name="title" placeholder="제목을 입력하세요" /></td>
             </tr>
             <tr>
-              <td colspan="2">내용</td>
+              <td colspan="2" class="form-tit">내용</td>
             </tr>
             <tr>
               <td colspan="2"><textarea id="summernote" name="content"></textarea></td>
             </tr>
             <tr>
               <td colspan="2">
-                <input type="submit" value="등록" />
+                <input class="reg-btn" type="submit" value="등록" />
               </td>
             </tr>
           </table>
