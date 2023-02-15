@@ -26,23 +26,23 @@
       <div class="wrap">
         <p class="pagetitle">게시물 작성</p>
         <form class="form" method="post" action="/boards">
-          <table class="all">
-            <tr>
-              <td class="form-tit tit-tit">제목</td>
-              <td><input type="text" name="title" placeholder="제목을 입력하세요" /></td>
-            </tr>
-            <tr>
-              <td colspan="2" class="form-tit">내용</td>
-            </tr>
-            <tr>
-              <td colspan="2"><textarea id="summernote" name="content"></textarea></td>
-            </tr>
-            <tr>
-              <td colspan="2">
+          <div class="all">
+            <div class="tit-row">
+              <span class="form-tit tit-tit">제목</span>
+              <span class="content"><input type="text" name="title" placeholder="제목을 입력하세요" /></span>
+            </div>
+            <div>
+              <span class="form-tit">내용</span>
+            </div>
+            <div>
+              <span class="content"><textarea id="summernote" name="content"></textarea></span>
+            </div>
+            <div>
+              <span>
                 <input class="reg-btn" type="submit" value="등록" />
-              </td>
-            </tr>
-          </table>
+              </span>
+            </div>
+          </div>
         </form>
       </div>
     </main>
