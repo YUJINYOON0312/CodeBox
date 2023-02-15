@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mariadb:loadbalance://mydb.cxllc8kaumoc.ap-northeast-2.rds.amazonaws.com:3306/CodeBox
+    username: nowon
+    password: qazplmcvb1234!
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate

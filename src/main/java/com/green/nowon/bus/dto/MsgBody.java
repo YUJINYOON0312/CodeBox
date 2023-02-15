@@ -5,8 +5,8 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class MsgBody {
+public class MsgBody<T> {
 
-	private List<BusRouteItem> itemList;
+	private List<T> itemList;
 
 }
