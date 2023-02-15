@@ -1,17 +1,23 @@
 @charset "UTF-8";
 
 #btn-chat-open {
+	background-image: url("/image/icon/chat01.png");
+	background-size: cover;
+	background-color: transparent;
+	width: 150px;
+	height: 120px;
+	border: none;
+	cursor: pointer;
 }
 
 #chat-bot > .wrap {
   position: absolute;
   z-index: 200;
-  right: 50px;
-  bottom: 50px;
+  right: 10px;
+  bottom: 20px;
   font-size: 14px;
-  background-color: #e9e9e9;
-  border-radius: 5px;
-  box-shadow: 0 0 30px 0 rgb(0 0 0 / 30%);
+  background-color: transparent;
+  border: none;
 }
 #chat-bot > .wrap > #chat-disp {
   display: none;
@@ -23,14 +29,16 @@
   line-height: 1.8em;
   overflow-y: auto;
   max-height: 640px;
+  background-color: #ffeba8;
 }
 #chat-header {
   position: relative;
   text-align: center;
-  background-color: #00af85;
-  color: #fff;
+  background-color: #4f6675;
+  color: #f6d256;
   height: 60px;
   line-height: 60px;
+  font-weight: bold;
 }
 #chat-header .btn-wrap {
   position: absolute;
@@ -43,8 +51,12 @@
 }
 
 #chat-header .btn-wrap button {
-  width: 100%;
-  height: 100%;
+  width: 24px;
+  height: 25px;
+  background-color: #4f6675;
+  border: 1px solid #f6d256;
+  color: #f6d256;
+  cursor: pointer;
 }
 #chat-disp {
   position: relative;
@@ -69,8 +81,8 @@
   text-align: right;
 }
 #chat-disp .part {
-  background-color: #fff;
-  color: #222;
+  background-color: #4f6675;
+  color: #f6d256;
   max-width: 270px;
   padding: 6px 20px 6px 10px;
   text-align: left;
@@ -93,19 +105,19 @@
   padding: 10px 15px;
   font-size: 16px;
   height: 60px;
-  background-color: #fff;
+  background-color: #4f6675;
 }
 #chat-question #question {
   border: none;
   background-color: #e9e9e9;
   border-radius: 18px;
-  height: 36px;
+  height: 40px;
   vertical-align: middle;
   width: calc(100% - 80px);
   padding: 0 1em;
 }
 #chat-question span {
-  width: 40px;
+  width: 20px;
   height: 100%;
 }
 #chat-question span i {
@@ -120,9 +132,12 @@
 }
 #chat-question button {
   width: 40px;
-  border: 1px solid #e9e9e9;
-  background-color: rgb(0 255 255 / 5%);
+  border: 1px solid #f6d256;
+  background-color: #f6d256;
   cursor: pointer;
+  color: #4f6675;
+  font-weight: bold;
+  border-radius: 18px;
 }
 #chat-content {
   min-height: 670px;
