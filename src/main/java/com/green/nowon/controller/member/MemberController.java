@@ -2,7 +2,6 @@ package com.green.nowon.controller.member;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +13,13 @@ import org.springframework.web.multipart.MultipartFile;
 import com.green.nowon.domain.dto.memberDTO.MemberUpdateDTO;
 import com.green.nowon.service.MemberService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class MemberController {
 
-	@Autowired
-	private MemberService memberService;
+	private final MemberService memberService;
 
 	@ResponseBody
 	@PostMapping("/mypage/temp-upload")

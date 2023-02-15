@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class ServiceResult {
-	
+
 	@JsonProperty("ServiceResult")
 	BusAPItResponse<BusRouteItem> serviceResult;
 

@@ -22,12 +22,13 @@ import com.green.nowon.domain.entity.member.MemberEntityRepository;
 
 import kr.co.shineware.nlp.komoran.core.Komoran;
 import kr.co.shineware.nlp.komoran.model.KomoranResult;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Service
 public class KomoranService {
 
-	@Autowired
-	private Komoran komoran;
+	private final Komoran komoran;
 
 	public MessageDTO nlpAnalyze(String message) {
 
@@ -54,7 +55,8 @@ public class KomoranService {
 		for (String token : nouns) {
 
 			Optional<ChatBotIntention> result = decisionTree(token, null);
-			if (result.isEmpty()) continue;// 존재하지 않으면 다음토큰 검색
+			if (result.isEmpty())
+				continue;// 존재하지 않으면 다음토큰 검색
 
 			// 1차 토근확인시 실행
 			// 1차목록 복사
@@ -95,7 +97,8 @@ public class KomoranService {
 	private PhoneInfo analyzeTokenIsPhone(Set<String> next) {
 		for (String name : next) {
 			Optional<MemberEntity> m = member.findByName(name);
-			if (m.isEmpty()) continue;
+			if (m.isEmpty())
+				continue;
 			// 존재하면
 			// String deptName=m.get().getDept().getDname();
 			long mno = m.get().getMno();
@@ -115,7 +118,8 @@ public class KomoranService {
 		for (String token : next) {
 			// 1차의도를 부모로하는 토큰이 존재하는지 파악
 			Optional<ChatBotIntention> result = decisionTree(token, upper.get());
-			if (result.isEmpty()) continue;
+			if (result.isEmpty())
+				continue;
 			return result.get().getAnswer();// 1차-2차 존재하는경우 답변
 		}
 		return upper.get().getAnswer();// 1차만 존재하는 답변

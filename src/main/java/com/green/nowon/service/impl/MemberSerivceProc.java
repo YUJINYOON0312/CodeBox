@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,6 +27,9 @@ import com.green.nowon.security.MyRole;
 import com.green.nowon.service.MemberService;
 import com.green.nowon.util.MyFileUtils;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class MemberSerivceProc implements MemberService {
 
@@ -37,20 +39,15 @@ public class MemberSerivceProc implements MemberService {
 	@Value("${file.location.upload}")
 	private String locationUpload;
 
-	@Autowired
-	private MemberEntityRepository memberRepo;
+	private final MemberEntityRepository memberRepo;
 
-	@Autowired
-	private AddressEntityRepository addressRepo;
+	private final AddressEntityRepository addressRepo;
 
-	@Autowired
-	private ProfileEntityRepository ProfileRepo;
+	private final ProfileEntityRepository ProfileRepo;
 
-	@Autowired
-	private DepartmentMemberEntityRepository dmRepo;
+	private final DepartmentMemberEntityRepository dmRepo;
 
-	@Autowired
-	private PasswordEncoder pe;
+	private final PasswordEncoder pe;
 
 	@Override
 	public void save(final MemberInsertDTO mdto, final AddressInsertDTO adto) {
