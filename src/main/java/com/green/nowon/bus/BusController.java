@@ -2,7 +2,6 @@ package com.green.nowon.bus;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,11 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.green.nowon.bus.dto.ArriveRequestDTO;
 import com.green.nowon.bus.dto.BusArriveItem;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @RestController
 public class BusController {
 
-	@Autowired
-	private BusService busService;
+	private final BusService busService;
 
 	// 그냥 페이지 이동
 	// @ResponseBody

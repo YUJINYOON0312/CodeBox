@@ -1,6 +1,5 @@
 package com.green.nowon.controller.salary;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,11 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.green.nowon.service.mypage.MyPageService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class SalaryController {
 
-	@Autowired
-	private MyPageService service;
+	private final MyPageService service;
 
 	@GetMapping("/salary/{mno}") // 급여관리 페이지에서 보이는 멤버리스트
 	public String memberList(@PathVariable long mno, Model model) {

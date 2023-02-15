@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -49,16 +48,12 @@ public class BoardServiceProc implements BoardService {
 	@Value("${file.location.noticeupload}")
 	private String locationUpload;
 
-	@Autowired
 	private final BoardEntityRepository repository;
 
-	@Autowired
 	private final GenBoardEntityRepository geRepo;
 
-	@Autowired
 	private final BoardImgEntityRepository imgRepo; // 이미지
 
-	@Autowired
 	private final MemberEntityRepository memRepo;// 멤버
 
 	@Transactional
@@ -92,8 +87,11 @@ public class BoardServiceProc implements BoardService {
 	@Override
 	public void search(String keyword, Model model, int page) {
 
-		/* List<BoardListDTO> searchList = repository.findByTitleContaining(keyword).stream().map(BoardListDTO::new)
-		 * .collect(Collectors.toList()); */ // 검색만
+		/*
+		 * List<BoardListDTO> searchList =
+		 * repository.findByTitleContaining(keyword).stream().map(BoardListDTO::new)
+		 * .collect(Collectors.toList());
+		 */ // 검색만
 
 		int size = 5;
 		Sort sort = Sort.by(Direction.DESC, "bno");
@@ -201,7 +199,8 @@ public class BoardServiceProc implements BoardService {
 
 		List<MemberEntity> writerMemList = memRepo.findAll();
 		HashMap<String, String> writerMemMap = new HashMap<>();
-		for (MemberEntity mem : writerMemList) writerMemMap.put(String.valueOf(mem.getMno()), mem.getName());
+		for (MemberEntity mem : writerMemList)
+			writerMemMap.put(String.valueOf(mem.getMno()), mem.getName());
 
 		Pageable pageable = PageRequest.of(page - 1, size, sort);
 		Page<GeneralBoardEntity> result = geRepo.findAll(pageable);
@@ -284,8 +283,12 @@ public class BoardServiceProc implements BoardService {
 	@Transactional
 	@Override
 	public void search02(String keyword, Model model, int page) {
-		/* 검색만 할 때 List<GenBoardListDTO> searchResult= repo.findByTitleContaining(keyword)
-		 * .stream().map(GenBoardListDTO::new).collect(Collectors.toList()); model.addAttribute("searchResult", searchResult); */
+		/*
+		 * 검색만 할 때 List<GenBoardListDTO> searchResult=
+		 * repo.findByTitleContaining(keyword)
+		 * .stream().map(GenBoardListDTO::new).collect(Collectors.toList());
+		 * model.addAttribute("searchResult", searchResult);
+		 */
 
 		int size = 5;
 		Sort sort = Sort.by(Direction.DESC, "bno");

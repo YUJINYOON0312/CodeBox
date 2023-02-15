@@ -3,7 +3,6 @@ package com.green.nowon.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.green.nowon.domain.dto.schedule.CalendarDTO;
@@ -15,16 +14,17 @@ import com.green.nowon.domain.entity.schedule.CalendarEntity2Repository;
 import com.green.nowon.domain.entity.schedule.CalendarEntityRepository;
 import com.green.nowon.service.CalendarService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class CalendarServiceProc implements CalendarService {
 
 	// 캘린더엔티티
-	@Autowired
-	private CalendarEntityRepository crepo;
+	private final CalendarEntityRepository crepo;
 
 	// 회사캘린더엔티티
-	@Autowired
-	private CalendarEntity2Repository crepo2;
+	private final CalendarEntity2Repository crepo2;
 
 	// 캘린더 insert
 	@Override
@@ -78,7 +78,9 @@ public class CalendarServiceProc implements CalendarService {
 
 	// 캘린더 select
 	@Override
-	public List<CalendarDTO2> getList2() { return crepo2.findAll().stream().map(CalendarDTO2::new).collect(Collectors.toList()); }
+	public List<CalendarDTO2> getList2() {
+		return crepo2.findAll().stream().map(CalendarDTO2::new).collect(Collectors.toList());
+	}
 
 	// 캘린더 insert
 	@Override

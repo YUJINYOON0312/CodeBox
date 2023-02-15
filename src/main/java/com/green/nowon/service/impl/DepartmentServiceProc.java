@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -17,22 +16,23 @@ import com.green.nowon.domain.entity.cate.DepartmentMemberRepository;
 import com.green.nowon.domain.entity.member.MemberEntityRepository;
 import com.green.nowon.service.DepartmentService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class DepartmentServiceProc implements DepartmentService {
 
-	@Autowired
-	private DepartmentEntityRepository departmentRepo;
+	private final DepartmentEntityRepository departmentRepo;
 
-	@Autowired
-	private DepartmentMemberRepository departmentMemberRepo;
+	private final DepartmentMemberRepository departmentMemberRepo;
 
-	@Autowired
-	private MemberEntityRepository memberRepo;
+	private final MemberEntityRepository memberRepo;
 
 	@Override
 	public boolean isReg(String text) {
 		Optional<DepartmentEntity> result = departmentRepo.findByParentDnoNullAndDname(text);
-		if (result.isEmpty()) return true;
+		if (result.isEmpty())
+			return true;
 		return false;
 	}
 
@@ -42,10 +42,12 @@ public class DepartmentServiceProc implements DepartmentService {
 				.orElseGet(() -> departmentRepo.save(DepartmentEntity.builder().dname(names[0]).depth(1).parent(null).build()));
 
 		DepartmentEntity cate2 = departmentRepo.findByParentDnoAndDname(cate1.getDno(), names[1])
-				.orElseGet(() -> departmentRepo.save(DepartmentEntity.builder().dname(names[1]).depth(2).parent(cate1).build()));
+				.orElseGet(
+						() -> departmentRepo.save(DepartmentEntity.builder().dname(names[1]).depth(2).parent(cate1).build()));
 
 		DepartmentEntity cate3 = departmentRepo.findByParentDnoAndDname(cate2.getDno(), names[2])
-				.orElseGet(() -> departmentRepo.save(DepartmentEntity.builder().dname(names[2]).depth(3).parent(cate2).build()));
+				.orElseGet(
+						() -> departmentRepo.save(DepartmentEntity.builder().dname(names[2]).depth(3).parent(cate2).build()));
 	}
 
 	/**
@@ -55,10 +57,12 @@ public class DepartmentServiceProc implements DepartmentService {
 	public void departmentList(Long parentDno, Model model) {
 		// if(parentDno.intValue()==0)parentDno=null;//null은 회사명
 		// List<DepartmentEntity> list = departmentRepo.findAll();
-		if (parentDno.intValue() == 0) parentDno = null;
+		if (parentDno.intValue() == 0)
+			parentDno = null;
 		List<DepartmentEntity> result = departmentRepo.findAllByParentDno(parentDno);
 
-		// model.addAttribute("list", departmentRepo.findByParentDnoOrderByDnameAsc(parentDno));
+		// model.addAttribute("list",
+		// departmentRepo.findByParentDnoOrderByDnameAsc(parentDno));
 		model.addAttribute("list", result);
 	}
 

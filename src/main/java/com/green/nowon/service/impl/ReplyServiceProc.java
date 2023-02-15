@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -17,11 +16,13 @@ import com.green.nowon.domain.entity.board.ReplyEntityRepository;
 import com.green.nowon.domain.entity.member.MemberEntity;
 import com.green.nowon.service.ReplyService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class ReplyServiceProc implements ReplyService {
 
-	@Autowired
-	private ReplyEntityRepository repo;
+	private final ReplyEntityRepository repo;
 
 	// 등록
 	@Transactional
