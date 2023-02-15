@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.title {
+	font-size: 0px;
+}
+
+.input {
+	font-size: 40px;
+	color: #f6d256;
+	position: relative;
+	top: 90px;
+	left: 624px;
+}
+
+.route {
+	font-weight: 600;
+	color: #f6d256;
+}
+
+
+input[type=text] {
+	width: 272px;
+	height: 35px;
+	font-size: 20px;
+	border: 3px solid #f6d256;
+	text-align: center;
+	background-color: #2d4554;
+	color: white;
+}
+
+#strSrch {
+	position: relative;
+	top: 140px;
+	left: 554px;
+}
+
+.search {
+    border: 3px solid #f6d256;
+    position: relative;
+    top: 140px;
+    height: 35px;
+    left: 572px;
+    background-color: #2d4554;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 14px;
+    color: white;
+}
