@@ -108,7 +108,14 @@
                         기안자
                       </td>
                       <td
-                        style="width: 200px; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left; padding: 3px !important"
+                        style="
+                          width: 200px;
+                          height: 22px;
+                          vertical-align: middle;
+                          border: 1px solid black;
+                          text-align: left;
+                          padding: 3px !important;
+                        "
                       >
                         <span
                           unselectable="on"
@@ -152,7 +159,14 @@
                         기안부서
                       </td>
                       <td
-                        style="width: 200px; padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left"
+                        style="
+                          width: 200px;
+                          padding: 3px !important;
+                          height: 22px;
+                          vertical-align: middle;
+                          border: 1px solid black;
+                          text-align: left;
+                        "
                       >
                         <span
                           unselectable="on"
@@ -196,7 +210,14 @@
                         기안일
                       </td>
                       <td
-                        style="width: 200px; padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left"
+                        style="
+                          width: 200px;
+                          padding: 3px !important;
+                          height: 22px;
+                          vertical-align: middle;
+                          border: 1px solid black;
+                          text-align: left;
+                        "
                       >
                         <span
                           unselectable="on"
@@ -243,7 +264,14 @@
                         문서번호
                       </td>
                       <td
-                        style="width: 200px; padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left"
+                        style="
+                          width: 200px;
+                          padding: 3px !important;
+                          height: 22px;
+                          vertical-align: middle;
+                          border: 1px solid black;
+                          text-align: left;
+                        "
                       >
                         <span
                           unselectable="on"
@@ -255,7 +283,8 @@
                           style=""
                           data-value=""
                           data-autotype=""
-                          ><span class="comp_item">[[${number}+1]]</span
+                          ><span class="comp_item" th:if="${number != null}">[[${number+1}]]</span>
+                          <span class="comp_item" th:if="${number == null}">1</span
                           ><span contenteditable="false" class="comp_active" style="display: none">
                             <span class="Active_dot1"></span><span class="Active_dot2"></span> <span class="Active_dot3"></span
                             ><span class="Active_dot4"></span>
@@ -326,7 +355,13 @@
                 <span
                   id="vacationTypeArea"
                   name="select"
-                  style="font-family: malgun gothic, dotum, arial, tahoma; font-size: 11pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                  style="
+                    font-family: malgun gothic, dotum, arial, tahoma;
+                    font-size: 11pt;
+                    line-height: normal;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                  "
                 >
                   <select name="adtype">
                     <option value="휴가">휴가</option>
@@ -455,11 +490,23 @@
               >
                 <span
                   id="restPointArea"
-                  style="font-family: malgun gothic, dotum, arial, tahoma; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                  style="
+                    font-family: malgun gothic, dotum, arial, tahoma;
+                    font-size: 9pt;
+                    line-height: normal;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                  "
                 ></span
                 ><span
                   id="applyPointArea"
-                  style="font-family: malgun gothic, dotum, arial, tahoma; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                  style="
+                    font-family: malgun gothic, dotum, arial, tahoma;
+                    font-size: 9pt;
+                    line-height: normal;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                  "
                   ><p><span id="ab"></span></p
                 ></span>
               </td>
@@ -533,8 +580,8 @@
                   background: #ddd;
                 "
               >
-                1. 연차의 사용은 근로기준법에 따라 전년도에 발생한 개인별 잔여 연차에 한하여 사용함을 원칙으로 한다. 단, 최초 입사시에는 근로 기준법에
-                따라 발생 예정된 연차를 차용하여 월 1회 사용 할 수 있다.<br />
+                1. 연차의 사용은 근로기준법에 따라 전년도에 발생한 개인별 잔여 연차에 한하여 사용함을 원칙으로 한다. 단, 최초
+                입사시에는 근로 기준법에 따라 발생 예정된 연차를 차용하여 월 1회 사용 할 수 있다.<br />
                 2. 경조사 휴가는 행사일을 증명할 수 있는 가족 관계 증명서 또는 등본, 청첩장 등 제출<br />
                 3. 공가(예비군/민방위)는 사전에 통지서를, 사후에 참석증을 반드시 제출
               </td>

@@ -206,7 +206,7 @@
               <th:block th:each="rdto : ${list}" th:if="${detail.bno == rdto.bno}">
                 <div class="flex">
                   <div class="reply-list section">
-                    <span th:text="${rdto.createdDate.toLocalDate()}" style="display: inline-block; margin-right: 7px; color: gray">작성일자</span>
+                    <span th:text="${rdto.createdDate.toLocalDate()}" style="display: inline-block; margin-right: 7px; color: white">작성일자</span>
                     <span th:text="${rdto.writerName}" style="color: #f6d256; margin-right: 10px">작성자</span>
                     <span th:utext="${rdto.content}" style="display: inline-block; width: 300px">댓글 내용</span>
                   </div>
