@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import com.green.nowon.domain.dto.memberDTO.DepartmentMemberListDTO;
 import com.green.nowon.domain.entity.cate.DepartmentEntity;
 import com.green.nowon.domain.entity.cate.DepartmentEntityRepository;
-import com.green.nowon.domain.entity.cate.DepartmentMemberRepository;
+import com.green.nowon.domain.entity.cate.DepartmentMemberEntityRepository;
 import com.green.nowon.domain.entity.member.MemberEntityRepository;
 import com.green.nowon.service.DepartmentService;
 
@@ -24,7 +24,7 @@ public class DepartmentServiceProc implements DepartmentService {
 
 	private final DepartmentEntityRepository departmentRepo;
 
-	private final DepartmentMemberRepository departmentMemberRepo;
+	private final DepartmentMemberEntityRepository departmentMemberRepo;
 
 	private final MemberEntityRepository memberRepo;
 
