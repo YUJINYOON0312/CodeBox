@@ -16,9 +16,9 @@ import com.green.nowon.domain.entity.member.MemberEntity;
 import com.green.nowon.domain.entity.member.MemberEntityRepository;
 import com.green.nowon.security.MyRole;
 
-import lombok.RequiredArgsConstructor;
+//import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @SpringBootTest
 class CodeBoxApplicationTests {
 
