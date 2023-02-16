@@ -16,9 +16,9 @@ import com.green.nowon.domain.entity.member.MemberEntity;
 import com.green.nowon.domain.entity.member.MemberEntityRepository;
 import com.green.nowon.security.MyRole;
 
-//import lombok.RequiredArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 @SpringBootTest
 class CodeBoxApplicationTests {
 
@@ -30,10 +30,12 @@ class CodeBoxApplicationTests {
 
 	@Autowired
 	DepartmentMemberEntityRepository dmRepo;
+	
+	@Autowired
+	DepartmentEntityRepository departmentRepo;
 
-	private final DepartmentEntityRepository departmentRepo;
-
-	private final PasswordEncoder pe;
+	@Autowired
+	PasswordEncoder pe;
 
 	// 주의사항 -> DB의 모든 PK가 1이여야합니다.따라사 기존에 생성 하는 도중에 실수를
 	// 했을 경우 DB부터 처음부터 만들어 주세요
