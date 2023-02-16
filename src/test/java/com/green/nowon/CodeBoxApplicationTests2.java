@@ -128,7 +128,7 @@ class CodeBoxApplicationTests2 {
 	// @formatter:on
 	// =================================================================
 
-	@Test
+	//@Test
 	void 유저_어드민_등록() {
 		IntStream.range(0, 10).forEach(t -> {
 			final var r = random;
