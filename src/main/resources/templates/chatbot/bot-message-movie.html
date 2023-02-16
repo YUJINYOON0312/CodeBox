@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+	<div class="flex center date" th:if="${!#strings.isEmpty(msg.today) and msg.order eq 1}" th:text="${msg.today}"></div>
+	<div class="msg bot flex">
+		<div  class="icon">
+			<img th:src="@{/image/icon/chat02.png}">
+		</div>
+		<div class="message" >
+			
+			<div class="part" th:if="${msg.order eq 1}">
+				<p th:utext="${msg.info}">안내글/인사말/메시지등</p>
+			</div>
+			<div class="part" th:if="${msg.scenario}">
+				<p th:if="${msg.order!=3}">질문에 대한 답을 선택해 주세요</p>
+				<div class="flex center menu" >
+					<div class="menu-item" style="text-align: left;">
+						<b><span  th:utext="${msg.scenario}">시나리오1</span></b>
+						<div class="select-list">
+							<ul th:if="${msg.order==1}">
+								<li>
+									<span onclick="movieMenuClicked(this,'')">영화전체검색</span>
+								</li>
+								<li>
+									<span onclick="movieMenuClicked(this,'K')">국내영화만</span>
+								</li>
+								<li>
+									<span onclick="movieMenuClicked(this,'F')">해외영화만</span>
+								</li>
+							</ul>
+						</div>
+						<form class="form" th:if="${msg.order>0}">
+							<input type="hidden" class="order" name="order" th:if="${msg.order}" th:value="${msg.order}" />
+							<input type="hidden" class="repNationCd" name="repNationCd" th:if="${msg.repNationCd}" th:value="${msg.repNationCd}" />
+							<input type="hidden" class="movieName" name="movieName" th:if="${msg.movieName}" th:value="${msg.movieName}" />
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- /*
+			<div class="part" th:if="${!#strings.isEmpty(msg.finalMsg)}" >
+				<p th:text="${msg.finalMsg}"></p>
+			</div>
+			*/ -->
+			<div class="time" th:text="${msg.time}">메세지 작성 시간</div>
+		</div>
+	</div>
+</html>

@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -29,14 +28,15 @@ import com.green.nowon.domain.entity.member.MemberEntity;
 import com.green.nowon.domain.entity.member.MemberEntityRepository;
 import com.green.nowon.service.attendance.CommuteService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class CommuteServiceProc implements CommuteService {
 
-	@Autowired
-	private CommuteEntityRepository commuteRepo;
+	private final CommuteEntityRepository commuteRepo;
 
-	@Autowired
-	private MemberEntityRepository memberRepo;
+	private final MemberEntityRepository memberRepo;
 
 	/**
 	 * 저장과 동시에 업데이트 기능
@@ -70,7 +70,9 @@ public class CommuteServiceProc implements CommuteService {
 		List<CommuteEntity> result = commuteRepo.findAllByMember_mno(mno);// 1.member찾기
 		LocalDate today = LocalDate.now();
 		long cno = 0;
-		for (CommuteEntity i : result) if (i.getToday().equals(today)) cno = i.getCno();
+		for (CommuteEntity i : result)
+			if (i.getToday().equals(today))
+				cno = i.getCno();
 		Optional<CommuteEntity> CommuteToday = commuteRepo.findById(cno);
 
 		// System.out.println(CommuteToday.get().getGTime());
@@ -88,7 +90,8 @@ public class CommuteServiceProc implements CommuteService {
 			commuteRepo.save(idto.entity().fkSaver(memberRepo.findById(mno).get()));
 			return commuteRepo.findById(cno + 1);
 		}
-		for (CommuteEntity i : result) cno = i.getCno();
+		for (CommuteEntity i : result)
+			cno = i.getCno();
 		Optional<CommuteEntity> CommuteLastDay = commuteRepo.findById(cno);
 		// System.out.println("최근날짜
 		// 확인>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+CommuteLastDay.get().getToday());

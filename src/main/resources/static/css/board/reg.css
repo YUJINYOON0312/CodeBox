@@ -78,6 +78,8 @@ div {
 td {
   font-size: 18px;
   font-weight: 500;
+  color: #f6d256;
+  margin-bottom: 10px;
 }
 tr {
   margin-top: 10px;

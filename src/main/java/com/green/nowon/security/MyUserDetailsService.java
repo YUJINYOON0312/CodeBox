@@ -2,7 +2,6 @@ package com.green.nowon.security;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,19 +12,15 @@ import com.green.nowon.domain.entity.cate.DepartmentMemberEntity;
 import com.green.nowon.domain.entity.cate.DepartmentMemberEntityRepository;
 import com.green.nowon.domain.entity.member.MemberEntityRepository;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
-	@Autowired
-	private MemberEntityRepository repo;
+	private final MemberEntityRepository repo;
 
-	@Autowired
-	private DepartmentMemberEntityRepository drepo;
-
-	public MyUserDetailsService(MemberEntityRepository memberRepository) {
-		repo = memberRepository;
-
-	}
+	private final DepartmentMemberEntityRepository drepo;
 
 	@Override
 	@Transactional(readOnly = true)

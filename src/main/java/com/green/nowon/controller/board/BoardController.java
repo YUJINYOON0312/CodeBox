@@ -2,7 +2,6 @@ package com.green.nowon.controller.board;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,14 +24,15 @@ import com.green.nowon.security.MyUserDetails;
 import com.green.nowon.service.BoardService;
 import com.green.nowon.service.ReplyService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class BoardController {
 
-	@Autowired
-	private BoardService service;
+	private final BoardService service;
 
-	@Autowired
-	private ReplyService serv;
+	private final ReplyService serv;
 
 	// 공지사항 게시판
 
@@ -107,8 +107,11 @@ public class BoardController {
 	}
 
 	// 댓글 리스트 @GetMapping("/notice-boards/{bno}") 증복오류
-	/* @GetMapping("/notice-boards/{bno}") public String replyList(@PathVariable long bno, Model model) {
-	 * serv.findAll(model); return "redirect:/notice-boards/{bno}"; } */
+	/*
+	 * @GetMapping("/notice-boards/{bno}") public String replyList(@PathVariable
+	 * long bno, Model model) { serv.findAll(model);
+	 * return "redirect:/notice-boards/{bno}"; }
+	 */
 
 	/* 여기서부터 자유게시판 */
 
@@ -118,9 +121,13 @@ public class BoardController {
 		return "board/generalList";
 	}
 
-	/* 검색기능 ajax 활용 방법
-	 * @GetMapping("/boards/search") public String genSearch(String keyword, Model model, int page) {
-	 * service.search02(keyword, model, page); return "board/generalSearchPage"; } */
+	/*
+	 * 검색기능 ajax 활용 방법
+	 * 
+	 * @GetMapping("/boards/search") public String genSearch(String keyword, Model
+	 * model, int page) { service.search02(keyword,
+	 * model, page); return "board/generalSearchPage"; }
+	 */
 
 	// 검색
 	@GetMapping("/boards/search")

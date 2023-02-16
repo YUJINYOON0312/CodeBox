@@ -1,6 +1,5 @@
 package com.green.nowon.controller.mypage;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,17 +12,17 @@ import com.green.nowon.service.BoardService;
 import com.green.nowon.service.MemberService;
 import com.green.nowon.service.mypage.MyPageService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class MyPageController {
 
-	@Autowired
-	private MyPageService service;
+	private final MyPageService service;
 
-	@Autowired
-	private BoardService boardService;
+	private final BoardService boardService;
 
-	@Autowired
-	private MemberService memberService;
+	private final MemberService memberService;
 
 	@GetMapping("/mypage/info/{mno}")
 	public String myPageInfo(@PathVariable long mno, @RequestParam(defaultValue = "1") int page, Model model) {

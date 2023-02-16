@@ -2,7 +2,6 @@ package com.green.nowon.controller.admin;
 
 import java.security.Principal;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,14 +12,15 @@ import com.green.nowon.domain.dto.attendance.CommuteInsertDTO;
 import com.green.nowon.service.PositionService;
 import com.green.nowon.service.attendance.CommuteService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class AmdinController {
 
-	@Autowired
-	private CommuteService commuteService;
+	private final CommuteService commuteService;
 
-	@Autowired
-	private PositionService service;
+	private final PositionService service;
 
 	@GetMapping("/admin")
 	public String admin(Principal principal, Model model, CommuteInsertDTO idto,

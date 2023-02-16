@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <meta charset="UTF-8" />
-    <title>Insert title here</title>
+    <th:block th:insert="~{admin/AdminLayout :: head}" />
+    <link rel="stylesheet" href="/css/admin/main.css" />
+    <link rel="stylesheet" href="/css/api/bus-index.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/api/bus-index.css">
     <script>
-      /*
+      /*/
 	$(function(){
 		$("form").submit(function(){
 			event.preventDefault();//from action 무효화, a href 무효화
 		});
 	});
-	*/
-      function searchBusInfo(enent) {
-        event.preventDefault();
+	 */
+      function searchBusInfo(event) {
+        event.preventDefault(); //form action 실행 안함.
         var strSrch = $("#strSrch").val().trim();
 
         $.ajax({
-          url: "/api/bus/search",
-          //{name:value} -->name은 변수가 아님
-          data: { strSrch: strSrch },
+          url: "/bus/search",
+          //{name:value} --> name은 변수가 아님
+          data: {
+            strSrch: strSrch,
+          },
           success: function (result) {
             $("#list-display").html(result);
           },

@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DepartmentMemberEntityRepository extends JpaRepository<DepartmentMemberEntity, Long> {
 
+	List<DepartmentMemberEntity> findAllByDepartment_dno(Long dno);
+
 	List<DepartmentMemberEntity> findByMemberMno(long arr);
 
 	Optional<DepartmentMemberEntity> findAllByMemberMno(long arr);

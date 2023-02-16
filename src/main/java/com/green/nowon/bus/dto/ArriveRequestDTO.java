@@ -4,7 +4,11 @@ import lombok.Data;
 
 @Data
 public class ArriveRequestDTO {
+
 	private String stId;
+
 	private String busRouteId;
-	private String ord;	
+
+	private String ord;
+
 }
