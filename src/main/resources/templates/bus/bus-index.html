@@ -86,6 +86,8 @@
 			},
 			success : function(result) {
 				$("#list-display").html(result);
+				$("#list-display").css("background","none");//백그라운드 없애기
+				$("#list-display").css("background-color","white");//백그라운드 없애기
 			}
 		});
 	}
@@ -96,6 +98,8 @@
 			url : `/bus/${busRouteId}`,
 			success : function(result) {
 				$("#list-display").html(result);
+				$("#list-display").css("background","none");//백그라운드 없애기
+				$("#list-display").css("background-color","white");//백그라운드 없애기
 			}
 		});
 	}
@@ -161,13 +165,21 @@
 	<!--2. 버스라우트id : 버스 정류장정보 획득-->
 	<!--3. 각각 정류장 위도 경도 정보를 배열로 저장-->
 	<!--4. 저장된 정류장배열을 kakao map 반영 정류장 위치를 마커로 표기 -->
-	<p class="title">버스api</p>
-	<form onsubmit="searchBusInfo(event)">
-		<label class="input">버스번호 입력</label> <input type="text" id="strSrch">
-		<button class="search">검색</button>
-	</form>
-	<div id="list-display"
-		style="width: 1300px; height: 550px; position: relative; top: 290px; left: -220px; border: 3px solid #f6d256;"></div>
-	
+	<section class="bus1">
+		<section class="bus2">
+			<div>
+				<p class="title">버스api</p>
+				<form onsubmit="searchBusInfo(event)">
+					<label class="input">버스번호 입력</label> <input type="text" id="strSrch">
+					<button class="search">검색</button>
+				</form>
+			</div>
+		</section>
+		<section class="bus3">
+			<div id="list-display" class="flex"></div>
+		</section>
+<!-- 		style="width: 1300px; height: 550px; position: relative; top: 290px; left: -220px; border: 3px solid #f6d256;" -->
+	</section>
+
 </body>
 </html>
