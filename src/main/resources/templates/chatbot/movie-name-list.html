@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+	<ul>
+		<li th:each="dto:${list}" >
+			<!--/*<span th:text="${#numbers.formatInteger(dto.stationId,0)}"></span>*/-->
+			<dl class="flex" id="movie-name-list">
+				<dt th:text="${dto.rank}"></dt>
+				<dd th:text="${dto.movieNm}" onclick="movieNameClicked(this)">영화명</dd>
+			</dl>
+		</li>
+	</ul>
+
+</html>

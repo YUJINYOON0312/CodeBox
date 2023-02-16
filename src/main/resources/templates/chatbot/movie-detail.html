@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+	<ul th:if="${detail}" id="movie-detail">
+		<li>
+			<dl class="flex">
+				<dt>제목</dt>
+				<dd>
+					<a th:href="${detail.link}">
+						<span th:utext="${detail.title}"></span><br/>
+						<span style="font-size: 7px;" th:if="${detail.subtitle}" th:utext="${detail.subtitle}"></span>
+					</a>
+				</dd>
+			</dl>
+		</li>
+		<li style="text-align: center">
+			<a th:href="${detail.link}"><img th:src="${detail.image}"></a>
+		</li>
+		<li>
+			<dl class="flex">
+				<dt>평점</dt>
+				<dd th:utext="${detail.userRating}"></dd>
+			</dl>
+		</li>
+		<li>
+			<dl class="flex">
+				<dt>개봉일</dt>
+				<dd th:utext="${detail.pubDate}"></dd>
+			</dl>
+		</li>
+		<li>
+			<dl class="flex">
+				<dt>감독</dt>
+				<dd th:utext="${detail.director}"></dd>
+			</dl>
+		</li>
+		<li>
+			<dl class="flex">
+				<dt>출연</dt>
+				<dd th:utext="${detail.actor}"></dd>
+			</dl>
+		</li>
+	</ul>
+</html>

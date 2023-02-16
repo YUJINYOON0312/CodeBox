@@ -5,7 +5,7 @@
     <title>Admin Page</title>
     <!-- 추가 head 정보를 replace 할 위치 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="/js/chat.js"></script>
+    <script src="/js/chat-movie.js"></script>
     <link rel="stylesheet" href="/css/commons/common.css" />
     <link rel="stylesheet" href="/css/admin/admin-layout.css" />
     <link rel="stylesheet" href="/css/commons/chat-bot.css" />
@@ -96,10 +96,10 @@
         </div>
       </div>
       <aside id="chat-bot">
-        <h1>그린 봇</h1>
+        <h1>박스봇</h1>
         <div class="wrap">
           <button type="button" id="btn-chat-open" onclick="openChat()"></button>
-          <th:block th:insert="~{chatbot/chat-bot::#chat-disp}" />
+          <th:block th:insert="~{chatbot/chat-bot-movie::#chat-disp}" />
         </div>
       </aside>
     </header>
