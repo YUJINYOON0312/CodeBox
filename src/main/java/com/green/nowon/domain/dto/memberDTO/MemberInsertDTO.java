@@ -38,7 +38,7 @@ public class MemberInsertDTO {
 				.pass(pe.encode(pass))// 비밀번호 암호화
 				.phone(phone)
 				.totSalary(0)
-				.email(id + "@greengames.shop")
+				.email(id + "@codebox.shop")
 				.hireDate(LocalDate.parse(hireDate))
 				.build();
 	}

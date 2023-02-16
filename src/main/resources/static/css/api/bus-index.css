@@ -1,15 +1,22 @@
 @charset "UTF-8";
 
+body{
+	color:#f6d256;
+}
+
+
 .title {
 	font-size: 0px;
 }
 
 .input {
-	font-size: 50px;
+
+	font-size: 40px;
 	color: #f6d256;
 	position: relative;
-	top: 100px;
-	left: 754px;
+    top: 8px;
+    left: -9px;
+
 }
 
 .route {
@@ -17,12 +24,14 @@
 	color: #f6d256;
 }
 
+
 #strSrch {
 	position: relative;
 	left: 375px;
 	top: 163px;
 	
 }
+
 
 input[type=text] {
 	width: 272px;
@@ -32,6 +41,12 @@ input[type=text] {
 	text-align: center;
 	background-color: #2d4554;
 	color: white;
+}
+
+
+#strSrch {
+	top: 140px;
+	left: 554px;
 }
 
 #routeType{
@@ -44,17 +59,91 @@ input[type=text] {
 	background-color: #2d4554;
 	font-size: 20px;
 	color: white;
+
 }
 
 .search {
     border: 3px solid #f6d256;
-    position: relative;
-    top: 162px;
+
+    top: 140px;
     height: 35px;
-    left: 208px;
+    left: 572px;
+
     background-color: #2d4554;
     padding-left: 4px;
     padding-right: 4px;
     font-size: 14px;
     color: white;
+
+}
+
+.bus1 {
+	width: 100%;
+	height: 100%;
+}
+.bus2 {
+	width: 100%;
+	height: 250px;
+	margin: auto;
+    line-height: 6;
+    text-align: center;
+}
+.bus3 {
+	width: 100%;
+	height: 100%;
+}
+.bus3>#list-display{
+    margin-top: 25px;
+	height: 550px;
+    width: 900px;
+    margin: auto;
+    border: 5px solid #f6d256;
+}
+.bus3>#list-display>#bus-station>.wrap{
+	height: 100%;
+}
+.bus3>#list-display>#bus-station>.wrap>ul{
+	height: 96%;
+    overflow: auto;
+}
+/* ##############tr td################### */
+th{
+	background: #4f6675;
+	height: 50px;
+    text-align: center;
+}
+
+td {
+  padding: 5px;
+  height: 60px;
+  text-align: center;
+  color: #f6d256;
+}
+
+td a {
+  color: #f6d256;
+}
+
+td:nth-child(1) {
+  width: 140px;
+}
+td:nth-child(2) {
+  width: 490px;
+}
+td:nth-child(3) {
+  width: 200px;
+}
+td:nth-child(4) {
+  width: 200px;
+}
+td:nth-child(5) {
+  width: 200px;
+}
+td:nth-child(6) {
+  width: 200px;
+}
+
+tr:nth-child(even) {
+  background: #4f6675;
+
 }
