@@ -37,8 +37,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * @author LeeYongJu 직원 관련 DB DB 이름 : GgMember 컬럼 목록 : mno(사번) ,name(이름), id(아이디) , pass(비밀번호) , phone(번호) ,
- *         mem_img(프로필) myRole : user(사원) , admin(팀장)
+ * @author LeeYongJu 직원 관련 DB DB 이름 : GgMember 컬럼 목록 : mno(사번) ,name(이름), id(아이디) , pass(비밀번호) , phone(번호) , mem_img(프로필) myRole :
+ *         user(사원) , admin(팀장)
  */
 @DynamicUpdate
 @Builder

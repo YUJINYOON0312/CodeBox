@@ -17,7 +17,7 @@ logging:
   #   name: CodeBox.log
   level:
     # SQL
-    # "[org.hibernate.SQL]": debug
+    "[org.hibernate.SQL]": debug
 
     # SQL value
     # "[org.hibernate.type.descriptor.sql]": trace

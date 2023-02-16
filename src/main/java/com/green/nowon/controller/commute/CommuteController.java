@@ -3,7 +3,6 @@ package com.green.nowon.controller.commute;
 import java.security.Principal;
 import java.time.format.DateTimeFormatter;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +14,13 @@ import com.green.nowon.domain.dto.attendance.CommuteInsertDTO;
 import com.green.nowon.domain.dto.attendance.CommuteUpdateDTO;
 import com.green.nowon.service.attendance.CommuteService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class CommuteController {
 
-	@Autowired
-	private CommuteService commuteService;
+	private final CommuteService commuteService;
 
 	@GetMapping("/admin/commute")
 	public String goTimepage() {
@@ -38,7 +39,8 @@ public class CommuteController {
 		commuteService.save(mno, dto, udto);// update기능도 포함되어 있습니다.
 		if (plag)
 			date = commuteService.findTodayTime(mno).get().getGTime().format(formatter);
-		else date = commuteService.findLastTime(mno, dto).get().getOTime().format(formatter);
+		else
+			date = commuteService.findLastTime(mno, dto).get().getOTime().format(formatter);
 		// System.err.println(commuteService.findGoTime(mno).get().getGTime().toLocalTime());
 		return date;
 	}

@@ -68,8 +68,8 @@
   margin-right: 10px;
 }
 #chat-disp .msg .icon img {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 40px;
 }
 #chat-disp .date,
 #chat-disp .time {
@@ -144,4 +144,40 @@
 }
 #chat-content .bot .message {
   width: 100%;
+}
+
+#movie-name-list dt{
+	margin-left: 5px;
+}
+
+#movie-name-list dd{
+	margin-left: 5px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+#movie-detail dt{
+	font-weight: bold;
+	margin-right: 10px;
+	width: 40px;
+	text-align: left;
+}
+
+#movie-detail dd{
+	color: #ffeba8;
+	width: 180px;
+	text-align: left;
+}
+
+#movie-detail dd span{
+	color: #ffeba8;
+	cursor: pointer;
+}
+
+#movie-detail li a{
+	cursor: pointer;
+}
+
+.select-list li span{
+	cursor: pointer;
 }

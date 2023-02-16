@@ -19,8 +19,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * @author LeeYongJu 테이블명 : Gg_department_member 컬럼 : dmno(부서직원번호) , department(부서테이블) , member(직원테이블) 부서카테고리가 실질적으로
- *         저장되는 부분
+ * @author LeeYongJu 테이블명 : Gg_department_member 컬럼 : dmno(부서직원번호) , department(부서테이블) , member(직원테이블) 부서카테고리가 실질적으로 저장되는 부분
  */
 @Builder
 @AllArgsConstructor

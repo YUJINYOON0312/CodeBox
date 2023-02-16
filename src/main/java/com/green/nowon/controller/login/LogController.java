@@ -1,6 +1,5 @@
 package com.green.nowon.controller.login;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,17 +9,18 @@ import com.green.nowon.domain.dto.memberDTO.MemberInsertDTO;
 import com.green.nowon.service.MemberService;
 import com.green.nowon.service.mypage.MyPageService;
 
+import lombok.RequiredArgsConstructor;
+
 /**
  * @author LeeYongJu Log관련 컨트롤러 기능 : 로그인 , 회원가입
  */
+@RequiredArgsConstructor
 @Controller
 public class LogController {
 
-	@Autowired
-	private MyPageService service;
+	private final MyPageService service;
 
-	@Autowired
-	private MemberService mService;
+	private final MemberService mService;
 
 	/**
 	 * 로그인창 이동

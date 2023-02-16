@@ -1,6 +1,5 @@
 package com.green.nowon.controller.department;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,11 +9,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.green.nowon.service.DepartmentService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class DepartmentController {
 
-	@Autowired
-	private DepartmentService departmentService;
+	private final DepartmentService departmentService;
 
 	/**
 	 * 이미 존재하는지 확인

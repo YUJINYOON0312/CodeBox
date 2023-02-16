@@ -14,47 +14,78 @@
 
     <script type="text/javascript">
       $(function () {
-        //0209 재근 날씨 api
+        //0209 재근 날씨 api - 서울
         var weatherIcon = {
-          "01": "fas fa-sun",
-          "02": "fas fa-cloud-sun",
-          "03": "fas fa-cloud",
-          "04": "fas fa-cloud-meatball",
-          "09": "fas fa-cloud-sun-rain",
-          10: "fas fa-cloud-showers-heavy",
-          11: "fas fa-poo-storm",
-          13: "far fa-snowflake",
-          50: "fas fa-smog",
+     		'01' : 'fas fa-sun',
+ 			'02' : 'fas fa-cloud-sun',
+ 			'03' : 'fas fa-cloud',
+ 			'04' : 'fas fa-cloud-meatball',
+ 			'09' : 'fas fa-cloud-sun-rain',
+ 			'10' : 'fas fa-cloud-showers-heavy',
+ 			'11' : 'fas fa-poo-storm',
+ 			'13' : 'far fa-snowflake',
+ 			'50' : 'fas fa-smog'
         };
 
-        var apiURI = "http://api.openweathermap.org/data/2.5/weather?q=" + "Seoul" + "&lang=" + "kr" + "&appid=" + "6c768b2acf055ef8e01410959d996966";
+        var apiURI = "http://api.openweathermap.org/data/2.5/weather?q=" + "seoul" + "&lang=" + "kr" + "&appid=" + "6c768b2acf055ef8e01410959d996966";
         $.ajax({
-          url: apiURI,
-          dataType: "json",
-          type: "GET",
-          async: "false",
-          success: function (resp) {
-            var $Icon = resp.weather[0].icon.substr(0, 2);
-            var $weather_description = resp.weather[0].main;
-            var $Temp = Math.floor(resp.main.temp - 273.15) + "º";
-            var $humidity = "습도&nbsp;&nbsp;&nbsp;&nbsp;" + resp.main.humidity + " %";
-            var $wind = "바람&nbsp;&nbsp;&nbsp;&nbsp;" + resp.wind.speed + " m/s";
-            var $city = "서울";
-            var $cloud = "구름&nbsp;&nbsp;&nbsp;&nbsp;" + resp.clouds.all + "%";
-            var $temp_min = "최저 온도&nbsp;&nbsp;&nbsp;&nbsp;" + Math.floor(resp.main.temp_min - 273.15) + "º";
-            var $temp_max = "최고 온도&nbsp;&nbsp;&nbsp;&nbsp;" + Math.floor(resp.main.temp_max - 273.15) + "º";
-
-            $(".weather_icon").append('<i class="' + weatherIcon[$Icon] + ' fa-5x" style="height : 80px; width : 80px;"></i>');
-            $(".weather_description").prepend($weather_description);
-            $(".current_temp").prepend($Temp);
-            $(".humidity").prepend($humidity);
-            $(".wind").prepend($wind);
-            $(".city").append($city);
-            $(".cloud").append($cloud);
-            $(".temp_min").append($temp_min);
-            $(".temp_max").append($temp_max);
-          },
+          	url: apiURI,
+          	dataType: "json",
+          	type: "GET",
+          	async: "false",
+          	success: function (resp) {
+	            var $Icon = resp.weather[0].icon.substr(0, 2);
+	            var $weather_description = resp.weather[0].main;
+	            var $Temp = Math.floor(resp.main.temp - 273.15) + "º";
+	            var $humidity = "습도&nbsp;&nbsp;&nbsp;&nbsp;" + resp.main.humidity + " %";
+	            var $wind = "바람&nbsp;&nbsp;&nbsp;&nbsp;" + resp.wind.speed + " m/s";
+	            var $city = "서울";
+	            var $cloud = "구름&nbsp;&nbsp;&nbsp;&nbsp;" + resp.clouds.all + "%";
+	            var $temp_min = "최저 온도&nbsp;&nbsp;&nbsp;&nbsp;" + Math.floor(resp.main.temp_min - 273.15) + "º";
+	            var $temp_max = "최고 온도&nbsp;&nbsp;&nbsp;&nbsp;" + Math.floor(resp.main.temp_max - 273.15) + "º";
+	
+	            $(".weather_icon").append('<i class="' + weatherIcon[$Icon] + ' fa-5x" style="height : 120px; width : 120px;"></i>');
+	            $(".weather_description").prepend($weather_description);
+	            $(".current_temp").prepend($Temp);
+	            $(".humidity").prepend($humidity);
+	            $(".wind").prepend($wind);
+	            $(".city").append($city);
+	            $(".cloud").append($cloud);
+	            $(".temp_min").append($temp_min);
+	            $(".temp_max").append($temp_max);
+          	}
         });
+        
+      //0215 날씨 api - 경기도
+		var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+'Gyeonggi-do'+"&appid="+"6c768b2acf055ef8e01410959d996966";
+		$.ajax({
+		    url: apiURI,
+		    dataType: "json",
+		    type: "GET",
+		    async: "false",
+		    success: function(resp) {		
+		        var $g_Icon = (resp.weather[0].icon).substr(0,2);
+		        var $g_weather_description = resp.weather[0].main;
+		        var $g_Temp = Math.floor(resp.main.temp- 273.15) + 'º';
+		        var $g_humidity = '습도&nbsp;&nbsp;&nbsp;&nbsp;' + resp.main.humidity+ ' %';
+		        var $g_wind = '바람&nbsp;&nbsp;&nbsp;&nbsp;' +resp.wind.speed + ' m/s';
+		        var $g_city = '경기도';
+		        var $g_cloud = '구름&nbsp;&nbsp;&nbsp;&nbsp;' + resp.clouds.all +"%";
+		        var $g_temp_min = '최저 온도&nbsp;&nbsp;&nbsp;&nbsp;' + Math.floor(resp.main.temp_min- 273.15) + 'º';
+		        var $g_temp_max = '최고 온도&nbsp;&nbsp;&nbsp;&nbsp;' + Math.floor(resp.main.temp_max- 273.15) + 'º';
+		
+		        $('.g_weather_icon').append('<i class="' + weatherIcon[$g_Icon] +' fa-5x" style="height : 120px; width : 120px;"></i>');
+		        $('.g_weather_description').prepend($g_weather_description);
+		        $('.g_current_temp').prepend($g_Temp);
+		        $('.g_humidity').prepend($g_humidity);
+		        $('.g_wind').prepend($g_wind);
+		        $('.g_city').append($g_city);
+		        $('.g_cloud').append($g_cloud);
+		        $('.g_temp_min').append($g_temp_min);
+		        $('.g_temp_max').append($g_temp_max);   
+		    }
+		})
+		
       }); //날씨 끝
 
       function already(el) {
@@ -164,15 +195,15 @@
               let y = today.getFullYear();
               let m = today.getMonth() + 1;
               let d = today.getDate();
-              document.write(y + "년 " + m + "월 " + d + "일 " + " : 오늘의 게임정보");
+              document.write(y + "년 " + m + "월 " + d + "일 " + " : 이달의 HOT! 영화 ");
             </script>
           </p>
           <br />
           <iframe
             width="560"
             height="320"
-            src="https://www.youtube.com/embed/1DbGzeN2FGo"
-            title="2023 시즌 | LoL 개발 현황 업데이트 - 리그 오브 레전드"
+            src="https://www.youtube.com/embed/kihrFxwdMb4"
+            title="[아바타: 물의 길] 메인 예고편"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
@@ -194,33 +225,54 @@
         </ul>
       </div>
       <!-- 0209 재근 날씨 api -->
-      <div id="Today-weather">
-        <p class="subtitle" th:text="${#temporals.format(#temporals.createNow(),'MM월 dd일')}+' 날씨'">오늘날씨</p>
-        <div style="color: #ffeba8; height: 100px; width: 540px; border-radius: 15px">
-          <div style="float: left; margin-left: 30px">
-            <div class="weather_icon"></div>
-          </div>
-          <br />
-          <div class="flex" style="float: right; margin: -10px 0px 0px 30px; padding-right: 20px; font-size: 11pt">
-            <div style="margin-right: 20px">
-              <div class="temp_min"></div>
-              <div class="temp_max"></div>
-              <div class="humidity"></div>
-            </div>
-            <div>
-              <div class="wind"></div>
-              <div class="cloud"></div>
-            </div>
-          </div>
-          <div class="flex" style="float: right; margin-top: -20px; position: relative">
-            <div class="current_temp" style="font-size: 40pt; margin-right: 10px"></div>
-            <div>
-              <div class="weather_description" style="font-size: 16pt; margin-top: 10px"></div>
-              <div class="city" style="font-size: 13pt"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <section>
+	      <div id="Today-weather">
+			<p class="subtitle" th:text="${#temporals.format(#temporals.createNow(),'MM월 dd일')}+' 서울 날씨'">오늘날씨</p>
+			<div style="color: #ffeba8; height: 100px; width: 540px; border-radius: 15px;">
+				<div style="float: left; margin-left: 30px">
+					<div class="weather_icon"></div>
+				</div>
+				<br>
+				<div class="flex" style="float: right; margin: -8px 60px 0px 70px; font-size: 11pt">
+					<div style="margin-right: 20px;">
+						<div class="temp_min"></div>
+			           	<div class="temp_max"></div>
+			           	<div class="humidity"></div>
+			           	<div class="wind"></div>
+			           	<div class="cloud"></div>
+					</div>
+				</div>
+				<div style="float : right; margin-top : -37px;">
+			       	<div class="current_temp" style="font-size : 42pt"></div>
+			       	<div class="weather_description" style="font-size : 14pt"></div>
+			       	<div class="city" style="font-size : 14pt"></div>
+		    	</div>
+			</div>
+		</div>
+	      <div id="Today-weather">
+			<p class="subtitle" th:text="${#temporals.format(#temporals.createNow(),'MM월 dd일')}+' 경기도 날씨'">오늘날씨</p>
+			<div style="color: #ffeba8; height: 100px; width: 540px; border-radius: 15px;">
+				<div style="float: left; margin-left: 30px">
+					<div class="g_weather_icon"></div>
+				</div>
+				<br>
+				<div class="flex" style="float: right; margin: -8px 60px 0px 70px; font-size: 11pt">
+					<div style="margin-right: 20px;">
+						<div class="g_temp_min"></div>
+			           	<div class="g_temp_max"></div>
+			           	<div class="g_humidity"></div>
+			           	<div class="g_wind"></div>
+			           	<div class="g_cloud"></div>
+					</div>
+				</div>
+				<div style="float : right; margin-top : -37px;">
+			       	<div class="g_current_temp" style="font-size : 42pt"></div>
+			       	<div class="g_weather_description" style="font-size : 14pt"></div>
+			       	<div class="g_city" style="font-size : 14pt"></div>
+		    	</div>
+			</div>
+		</div>
+      </section>
     </main>
   </body>
 </html>

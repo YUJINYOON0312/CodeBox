@@ -117,10 +117,15 @@
   padding: 7px;
   cursor: pointer;
 }
+.pageNumber{
+	margin-top: 10px;
+	margin-left: 330px;
+}
 
 .pageNumber a {
-  margin-left: 30px;
-  color: #f6d256;
+	font-size: 18px;
+	font-weight:bold;
+  	color: #f6d256;
 }
 
 /* 날씨 api */
@@ -128,12 +133,13 @@
   border: 1px solid #f6d256;
   border-radius: 15px;
   display: block;
-  width: 540px;
+  width: 500px;
   margin: 10px;
+  height: 195px;
 }
 .subtitle {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 10px 0;
   font-size: 24px;
   font-weight: bold;
   color: #f6d256;

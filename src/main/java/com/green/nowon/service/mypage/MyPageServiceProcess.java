@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -25,26 +24,23 @@ import com.green.nowon.domain.entity.member.MemberEntity;
 import com.green.nowon.domain.entity.member.MemberEntityRepository;
 import com.green.nowon.domain.entity.member.ProfileEntityRepository;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class MyPageServiceProcess implements MyPageService {
 
-	@Autowired
-	private MemberEntityRepository mRepo;
+	private final MemberEntityRepository mRepo;
 
-	@Autowired
-	private AddressEntityRepository aRepo;
+	private final AddressEntityRepository aRepo;
 
-	@Autowired
-	private ProfileEntityRepository proRepo;
+	private final ProfileEntityRepository proRepo;
 
-	@Autowired
-	private DepartmentEntityRepository dRepo;
+	private final DepartmentEntityRepository dRepo;
 
-	@Autowired
-	private PositionRepository pRepo;
+	private final PositionRepository pRepo;
 
-	@Autowired
-	private DepartmentMemberEntityRepository dmRepo;
+	private final DepartmentMemberEntityRepository dmRepo;
 
 	@Transactional
 	@Override
@@ -93,9 +89,7 @@ public class MyPageServiceProcess implements MyPageService {
 
 		model.addAttribute("detail", mRepo.findById(mno).map(SalaryListDTO::new).orElseThrow());
 
-		final List<DepartmentDTO> result = dRepo.findAllByDepth(3)
-				.stream()
-				.map(DepartmentDTO::new)
+		final List<DepartmentDTO> result = dRepo.findAllByDepth(3).stream().map(DepartmentDTO::new)
 				.collect(Collectors.toList());
 		model.addAttribute("department", result);
 
@@ -114,7 +108,8 @@ public class MyPageServiceProcess implements MyPageService {
 
 		// 기존부서 일괄 삭제
 		final List<DepartmentMemberEntity> temp = dmRepo.findAllByMember_mno(mno);
-		for (final DepartmentMemberEntity d : temp);
+		for (final DepartmentMemberEntity d : temp)
+			;
 		dmRepo.deleteByMember_mno(mno);
 		dmRepo.save(DepartmentMemberEntity.builder() // 부서등록
 				.department(DepartmentEntity.builder().dno(dno).build())

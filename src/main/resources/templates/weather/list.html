@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<table>
+		<tr th:each="dto:${list}">
+			<td>
+				<span th:text="${dto.fcstDate}">날짜</span>
+				<span th:text="${dto.fcstTime}">시간</span>
+			</td>
+			<td>
+				<span th:text="${dto.fcstValue}">값</span>
+				
+			</td>
+		</tr>
+	</table>	
+
+</html>

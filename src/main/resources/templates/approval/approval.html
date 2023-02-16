@@ -116,17 +116,38 @@
                               style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
                               data-value=""
                               data-autotype=""
-                              ><span class="comp_item" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                              ><span
+                                class="comp_item"
+                                style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                th:if="${number != null}"
                                 >[[${number}+1]]</span
+                              >
+                              <span
+                                class="comp_item"
+                                style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                th:if="${number == null}"
+                                >1</span
                               ><span
                                 contenteditable="false"
                                 class="comp_active"
                                 style="display: none; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
                               >
-                                <span class="Active_dot1" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                                ><span class="Active_dot2" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
-                                <span class="Active_dot3" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                                ><span class="Active_dot4" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
+                                <span
+                                  class="Active_dot1"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span
+                                ><span
+                                  class="Active_dot2"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span>
+                                <span
+                                  class="Active_dot3"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span
+                                ><span
+                                  class="Active_dot4"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span>
                               </span>
                               <span
                                 contenteditable="false"
@@ -185,17 +206,31 @@
                               style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
                               data-value=""
                               data-autotype=""
-                              ><span class="comp_item" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                              ><span
+                                class="comp_item"
+                                style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
                                 ><p th:text="${#authentication.principal.dName}"></p></span
                               ><span
                                 contenteditable="false"
                                 class="comp_active"
                                 style="display: none; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
                               >
-                                <span class="Active_dot1" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                                ><span class="Active_dot2" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
-                                <span class="Active_dot3" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                                ><span class="Active_dot4" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
+                                <span
+                                  class="Active_dot1"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span
+                                ><span
+                                  class="Active_dot2"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span>
+                                <span
+                                  class="Active_dot3"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span
+                                ><span
+                                  class="Active_dot4"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span>
                               </span>
                               <span
                                 contenteditable="false"
@@ -253,12 +288,23 @@
                               style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
                               data-value=""
                               data-autotype=""
-                              ><span class="Active_dot1" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                              ><span class="Active_dot2" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                              ><span
+                                class="Active_dot1"
+                                style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                              ></span
+                              ><span
+                                class="Active_dot2"
+                                style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
                                 ><div th:text="${#authentication.principal.name}"></div>
                               </span>
-                              <span class="Active_dot3" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                              ><span class="Active_dot4" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
+                              <span
+                                class="Active_dot3"
+                                style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                              ></span
+                              ><span
+                                class="Active_dot4"
+                                style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                              ></span>
                             </span>
                             <span
                               contenteditable="false"
@@ -322,10 +368,22 @@
                                 class="comp_active"
                                 style="display: none; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
                               >
-                                <span class="Active_dot1" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                                ><span class="Active_dot2" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
-                                <span class="Active_dot3" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                                ><span class="Active_dot4" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
+                                <span
+                                  class="Active_dot1"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span
+                                ><span
+                                  class="Active_dot2"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span>
+                                <span
+                                  class="Active_dot3"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span
+                                ><span
+                                  class="Active_dot4"
+                                  style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                                ></span>
                               </span>
                               <span
                                 contenteditable="false"
@@ -402,10 +460,22 @@
                       class="comp_active"
                       style="display: none; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
                     >
-                      <span class="Active_dot1" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                      ><span class="Active_dot2" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
-                      <span class="Active_dot3" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                      ><span class="Active_dot4" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
+                      <span
+                        class="Active_dot1"
+                        style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                      ></span
+                      ><span
+                        class="Active_dot2"
+                        style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                      ></span>
+                      <span
+                        class="Active_dot3"
+                        style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                      ></span
+                      ><span
+                        class="Active_dot4"
+                        style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                      ></span>
                     </span>
                     <span
                       contenteditable="false"
@@ -474,10 +544,22 @@
                     class="comp_active"
                     style="display: none; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
                   >
-                    <span class="Active_dot1" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                    ><span class="Active_dot2" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
-                    <span class="Active_dot3" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span
-                    ><span class="Active_dot4" style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"></span>
+                    <span
+                      class="Active_dot1"
+                      style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                    ></span
+                    ><span
+                      class="Active_dot2"
+                      style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                    ></span>
+                    <span
+                      class="Active_dot3"
+                      style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                    ></span
+                    ><span
+                      class="Active_dot4"
+                      style="font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px"
+                    ></span>
                   </span>
                   <span
                     contenteditable="false"

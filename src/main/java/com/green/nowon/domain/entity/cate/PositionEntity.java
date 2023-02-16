@@ -13,8 +13,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * @author LeeYongJu 직책 카테고리 컬럼 : pno(직책번호) , postionName(직책 이름) ,normalSalary(직책 기본금) 카테고리형식이기 때문에 직접 추가 혹은 추가하는 부분이 필요
- *         1차 카테고리이기에 셀프조인 삭제 -> 부모 fk 삭제
+ * @author LeeYongJu 직책 카테고리 컬럼 : pno(직책번호) , postionName(직책 이름) ,normalSalary(직책 기본금) 카테고리형식이기 때문에 직접 추가 혹은 추가하는 부분이 필요 1차
+ *         카테고리이기에 셀프조인 삭제 -> 부모 fk 삭제
  */
 @Builder
 @AllArgsConstructor
