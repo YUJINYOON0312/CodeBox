@@ -6,31 +6,30 @@
   </head>
   <body class="flex">
     <main>
-      <div>
-        <div class="mypage">
+        <div>
           <div class="wrap-title flex">
-            <div class="salary-list" th:each="dto : ${srlist}">
+            <div class="salary-list flex" th:each="dto : ${srlist}" style="width: 350px;">
               <img align="left" th:if="${#strings.isEmpty(dto.profileUrl)}" src="/image/test/profiletest.jpeg" />
               <img align="left" th:if="${!#strings.isEmpty(dto.profileUrl)}" th:src="${dto.profileUrl}" />
               <br />
-              <ul>
-                <li>
+              <ul style="margin-top: 11px;">
+                <li style="text-align: start;">
                   <label>사번 : </label>
                   <span>[[${dto.mno}]]</span>
                 </li>
-                <li>
+                <li style="text-align: start;">
                   <label>이름 : </label>
                   <span>[[${dto.name}]]</span>
                 </li>
-                <li>
+                <li style="text-align: start;">
                   <label>이메일 : </label>
                   <span>[[${dto.email}]]</span>
                 </li>
-                <li>
+                <li style="text-align: start;">
                   <label>연락처 : </label>
                   <span>[[${dto.phone}]]</span>
                 </li>
-                <li>
+                <li style="text-align: start;">
                   <label>부서 : </label>
                   <span>[[${dto.dName}]]</span>
                 </li>
@@ -38,7 +37,6 @@
             </div>
           </div>
         </div>
-      </div>
     </main>
   </body>
 </html>
