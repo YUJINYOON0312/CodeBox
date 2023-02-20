@@ -51,7 +51,7 @@
           <p th:text="${#authentication.principal.mno}"></p>
         </div>
         <div style="text-align: center">
-          <a th:href="|/mypage/info/${#authentication.principal.mno}|" class="test">내정보</a>
+          <a th:href="|/mypage/info/${#authentication.principal.mno}|" class="test">마이페이지</a>
           <a href="/login" style="font-size: 11px">로그아웃</a>
         </div>
         <ul>
@@ -77,6 +77,14 @@
             </dl>
           </li>
           <li>
+  			<dl>
+				<dt>업무결재</dt>
+				<dd><a href="/approval">전자결재</a></dd>
+				<dd><a href="/approval/vacation">휴가및병가</a></dd>
+				<dd><a th:href="|/approval/check/${#authentication.principal.mno}|">결재확인</a></dd>
+			</dl>
+   		  </li>
+          <li>
             <dl>
               <dt>영화 상영 정보</dt>
               <dd><a href="/movies">박스오피스</a></dd>
@@ -85,7 +93,6 @@
           <li>
             <dl>
               <dt>오시는 길</dt>
-              <dd><a href="/api/map">지도 보기</a></dd>
               <dd><a href="/bus">버스 검색</a></dd>
             </dl>
           </li>

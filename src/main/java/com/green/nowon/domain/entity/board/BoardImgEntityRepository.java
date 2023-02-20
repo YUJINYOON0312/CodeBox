@@ -12,4 +12,6 @@ public interface BoardImgEntityRepository extends JpaRepository<BoardImgEntity, 
 
 	void deleteByBoard_bno(long bno);
 
+	Optional<BoardImgEntity> findByBoard_bno(long bno);
+
 }

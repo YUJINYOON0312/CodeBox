@@ -28,6 +28,7 @@ import com.green.nowon.domain.dto.board.GenBoardSaveDTO;
 import com.green.nowon.domain.dto.board.GenBoardUpdateDTO;
 import com.green.nowon.domain.entity.board.BoardEntity;
 import com.green.nowon.domain.entity.board.BoardEntityRepository;
+import com.green.nowon.domain.entity.board.BoardImgEntity;
 import com.green.nowon.domain.entity.board.BoardImgEntityRepository;
 import com.green.nowon.domain.entity.board.GenBoardEntityRepository;
 import com.green.nowon.domain.entity.board.GeneralBoardEntity;
@@ -162,6 +163,7 @@ public class BoardServiceProc implements BoardService {
 	@Transactional
 	@Override
 	public void update(long bno, BoardUpdateDTO dto) {
+
 		BoardEntity entityImg = null;
 
 		// findById(bno) 통해서 엔티티의 데이터 찾음 -> result
@@ -170,13 +172,19 @@ public class BoardServiceProc implements BoardService {
 		// 존재하면 수정
 		if (result.isPresent()) {
 			BoardEntity entity = result.get();
-			// 이미지 저장 전에 삭제
-			imgRepo.deleteByBoard_bno(bno);
+			
+			System.err.println("찾기");
+			Optional<BoardImgEntity> boardImg = imgRepo.findByBoard_bno(bno);
+			System.err.println("찾기종료");
+			
 			entity.update(dto); // board 엔티티에 있는 편의메서드
 			// 업데이트 반영
 			entityImg = repository.save(entity);
 			// 이미지 저장
-			dto.toListImgs(entityImg, locationUpload).forEach(imgRepo::save);
+			if(boardImg.isPresent()) {
+				imgRepo.deleteByBoard_bno(bno);
+				dto.toListImgs(entityImg, locationUpload).forEach(imgRepo::save);
+			}
 		}
 
 	}
